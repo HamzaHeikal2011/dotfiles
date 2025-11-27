@@ -1,0 +1,192 @@
+@import "../omarchy/current/theme/waybar.css";
+
+* {
+  color: @foreground;
+  border: none;
+  min-height: 0;
+  font-family: "CaskaydiaMono Nerd Font";
+  font-weight: 600;
+  font-size: 13px;
+}
+
+/* Apply border-radius only to module containers */
+.modules-left > *,
+.modules-right > *,
+.modules-center > * {
+  border-radius: 12px;
+}
+
+.modules-left {
+  margin-left: 8px;
+}
+
+.modules-right {
+  margin-right: 8px;
+}
+
+/* -----------------------------------------------------
+ * WORKSPACES: Elastic Pill Animation
+ * ----------------------------------------------------- */
+
+#workspaces button {
+  /* Removed 'all: initial' to allow transitions */
+  padding: 0 5px;
+  min-width: 9px;
+
+  margin: 4px 3px;
+
+  background-color: transparent;
+  color: @foreground;
+  border-radius: 6px;
+
+  /* ANIMATION */
+  transition: all 0.2s ease;
+}
+
+/* The Active "Stretched" Pill */
+#workspaces button.active {
+  padding-left: 5.5px;
+  padding-right: 8px;
+  background-color: alpha(@foreground, 0.1); /* Gold Background */
+  min-width: 25px;
+}
+
+#workspaces button.active * {
+  font-size: 16px;
+}
+#workspaces button * {
+  font-size: 15px;
+}
+
+#workspaces button.empty {
+  opacity: 0.5;
+}
+
+/* -----------------------------------------------------
+ * WINDOW & BAR
+ * ----------------------------------------------------- */
+
+window#waybar {
+  background-color: #121212;
+  border-radius: 8px;
+  border: 1px solid rgba(128, 128, 128, 0.5);
+}
+
+#custom-update {
+  font-size: 10px;
+  margin-right: 2px;
+  margin-left: 10px;
+}
+
+#pulseaudio {
+  color: @foreground;
+  margin-right: 12px;
+}
+
+#bluetooth {
+  color: @foreground;
+  margin-right: 12px;
+}
+
+#custom-omarchy {
+  margin-right: 8px;
+}
+
+#custom-screenrecording-indicator,
+#window {
+  margin-left: 5px;
+}
+
+.modules-left #window * {
+  color: #ffdddd;
+}
+
+#tray {
+  margin-left: 8px;
+  margin-right: 12px;
+}
+
+#custom-expand-icon {
+  margin-right: 13px;
+}
+
+tooltip,
+tooltip {
+  padding: 10px;
+  border: 1.5px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 500;
+  background-color: rgba(15, 15, 15, 1);
+}
+
+#clock {
+  margin-left: 8px;
+}
+
+.hidden {
+  opacity: 0;
+}
+
+#custom-screenrecording-indicator {
+  margin-left: 14px;
+  margin-right: 5px;
+  font-size: 10px;
+}
+
+#custom-screenrecording-indicator.active {
+  color: #a55555;
+}
+
+#custom-weather {
+  margin-left: 8px;
+  margin-right: 8px;
+}
+
+#custom-pacman-updates {
+  color: cornflowerblue;
+  margin-right: 11px;
+  margin-left: 8px;
+}
+
+/* -----------------------------------------------------
+ * BATTERY MODULE
+ * ----------------------------------------------------- */
+
+#battery {
+  margin: 0;
+  margin-right: 6px;
+  color: @foreground;
+  background: transparent;
+  border-radius: 0;
+}
+
+#battery.warning {
+  color: #c55a5a;
+}
+
+#battery.critical:not(.charging) {
+  color: #f38ba8;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-iteration-count: infinite;
+}
+
+/* Charging Animation */
+#battery.charging {
+  animation-name: charging-slide;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+#battery.plugged,
+
+#custom-omarchy {
+  color: lightblue;
+}
+
+#network {
+  color: @foreground;
+  margin-right: 17px;
+}
