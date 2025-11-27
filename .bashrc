@@ -7,7 +7,7 @@ source ~/.local/share/omarchy/default/bash/rc
 
 # Add your own exports, aliases, and functions here.
 alias a='arduino-cli'
-alias amonuno='arduino-cli monitor -p /dev/ttyACM0'
+alias amon='arduino-cli monitor -p /dev/ttyACM0'
 alias c='clear'
 alias arduino-ide='exec ~/Desktop/3-resources/appimages/Arduino.AppImage'
 alias logseq='exec ~/Downloads/Logseq.AppImage'
