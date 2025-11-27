@@ -1,6 +1,6 @@
 #!/bin/bash
 
-pacman -S stow chrome exfat-utils pacman blender pacman discord dust yazi
+pacman -S stow chrome exfat-utils pacman blender pacman discord dust yazi bat
 
 echo  "cloning dotfiles"
 git clone https://github.com/HamzaHeikal2011/dotfiles.git
