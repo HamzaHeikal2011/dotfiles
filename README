@@ -1,4 +1,13 @@
-Welcome
+Dear Hamza,
 
-  To Hamza:
-if this is being accessed on a new computer, congrats. If not, then prob RIP, you probably broke something
+This repo seemed simple to make (and it is, you probably would remember), but the you should take into full consideration how important it is. This repo is the basic essence of your current and future computers (after it has been cloned and stowed of course). Use it wisely, appreciate it fully. 
+
+use the install.sh file first then 
+```
+$ stow --adopt .
+```
+
+Good luck and congrats or RIP
+sincerely,
+13yo Hamza 
+
