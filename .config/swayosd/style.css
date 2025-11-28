@@ -1,9 +1,9 @@
 @import "../omarchy/current/theme/swayosd.css";
 
-window {
-  border-radius: 12px;
+window#swayosd {
+  border-radius: 8px;
   opacity: 1;
-  border: 1px solid @border-color;
+  border: 1px solid rgba(128, 128, 128, 0.5);
 
   background-color: @background-color;
 }
