@@ -31,9 +31,9 @@
 #workspaces button {
   /* Removed 'all: initial' to allow transitions */
   padding: 0 5px;
-  min-width: 9px;
+  min-width: 10px;
 
-  margin: 4px 3px;
+  margin: 4px 4px;
 
   background-color: transparent;
   color: @foreground;
@@ -45,10 +45,10 @@
 
 /* The Active "Stretched" Pill */
 #workspaces button.active {
-  padding-left: 5.5px;
-  padding-right: 8px;
+  padding-left: 4px;
+  padding-right: 5px;
   background-color: alpha(@foreground, 0.1); /* Gold Background */
-  min-width: 25px;
+  min-width: 20px;
 }
 
 #workspaces button.active * {
