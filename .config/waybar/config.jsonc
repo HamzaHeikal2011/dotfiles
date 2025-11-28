@@ -77,7 +77,7 @@
     "tooltip-format-ethernet": "⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
     "tooltip-format-disconnected": "Disconnected",
     "interval": 3,
-    "on-click": "omarchy-launch-floating-terminal-with-presentation nmtui",
+    "on-click": "omarchy-launch-wifi",
   },
   "battery": {
     "format": "{capacity}% {time} {icon}",
