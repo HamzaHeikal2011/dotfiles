@@ -9,7 +9,7 @@ read -p "Copy dotfiles automaticaly? (y/n): "
 case "$choice" in
   y|Y )
     echo "Proceeding..."
-    stow --adopt .
+    sudo cp ./.config ~/.config
     ;;
   n|N )
     echo "Finishing, Enjoy :)"
