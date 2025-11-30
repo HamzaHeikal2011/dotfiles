@@ -1,17 +1,26 @@
 #!/bin/bash
 
-pacman -S stow chrome exfat-utils pacman blender pacman discord dust yazi bat
+# Install packages
+pacman -S --noconfirm stow google-chrome exfat-utils blender discord dust yazi bat
 
-echo  "cloning dotfiles"
+echo "Cloning dotfiles"
 git clone https://github.com/HamzaHeikal2011/dotfiles.git
 
-read -p "Copy dotfiles automaticaly? (y/n): "
-case "$choice" in
-  y|Y )
-    echo "Proceeding..."
-    sudo cp ./.config ~/.config
-    ;;
-  n|N )
-    echo "Finishing, Enjoy :)"
-    exit 0 # Exit the script if not confirmed
+read -p "Copy dotfiles automatically (y/n): " choice
 
+case "$choice" in
+  y|Y)
+    echo "Proceeding..."
+    # Assuming the dotfiles repo contains a .config folder
+    cd dotfiles || exit 1
+    sudo cp -r .config ~/.config
+    ;;
+  n|N)
+    echo "Finishing, Enjoy :)"
+    exit 0
+    ;;
+  *)
+    echo "Invalid input"
+    exit 1
+    ;;
+esac
