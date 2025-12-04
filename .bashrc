@@ -23,3 +23,6 @@ function y() {
 
 # Make an alias for invoking commands you use constantly
 # alias p='python'
+
+# uv
+export PATH="/home/hamza/.local/share/../bin:$PATH"
