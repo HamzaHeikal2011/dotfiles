@@ -4,7 +4,7 @@
   "margin-top": 5,
   "position": "top",
   "spacing": 0,
-  "width": 1345,
+  "width": 650,
   "height": 28,
   "modules-left": [
     "hyprland/workspaces",
