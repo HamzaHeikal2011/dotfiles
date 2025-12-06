@@ -13,7 +13,7 @@ case "$choice" in
     echo "Proceeding..."
     # Assuming the dotfiles repo contains a .config folder
     cd dotfiles || exit 1
-    sudo cp -r .config ~/.config
+    stow --adopt .
     ;;
   n|N)
     echo "Finishing, Enjoy :)"
