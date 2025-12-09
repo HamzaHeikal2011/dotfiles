@@ -2,7 +2,6 @@
 [[ $- != *i* ]] && return
 
 # All the default Omarchy aliases and functions
-# (don't mess with these directly, just overwrite them here!)
 source ~/.local/share/omarchy/default/bash/rc
 
 # Add your own exports, aliases, and functions here.
@@ -13,7 +12,7 @@ alias arduino-ide='exec ~/Desktop/3-resources/appimages/Arduino.AppImage'
 alias logseq='exec ~/Downloads/Logseq.AppImage'
 alias neofetch='fastfetch'
 
-# Yazi function
+# Yazi "cd" replacement
 function y() {
 	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
 	yazi "$@" --cwd-file="$tmp"
@@ -28,3 +27,5 @@ export VISUAL=nvim
 
 # uv
 export PATH="/home/hamza/.local/share/../bin:$PATH"
+
+echo "Hello from the shell!"
