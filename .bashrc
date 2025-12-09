@@ -12,6 +12,7 @@ alias c='clear'
 alias arduino-ide='exec ~/Desktop/3-resources/appimages/Arduino.AppImage'
 alias logseq='exec ~/Downloads/Logseq.AppImage'
 alias neofetch='fastfetch'
+
 # Yazi function
 function y() {
 	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
@@ -21,8 +22,9 @@ function y() {
 	rm -f -- "$tmp"
 }
 
-# Make an alias for invoking commands you use constantly
-# alias p='python'
+# Defaults:
+export EDITOR=nvim
+export VISUAL=nvim
 
 # uv
 export PATH="/home/hamza/.local/share/../bin:$PATH"
