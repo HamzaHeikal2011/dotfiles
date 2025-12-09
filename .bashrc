@@ -28,4 +28,3 @@ export VISUAL=nvim
 # uv
 export PATH="/home/hamza/.local/share/../bin:$PATH"
 
-echo "Hello from the shell!"
