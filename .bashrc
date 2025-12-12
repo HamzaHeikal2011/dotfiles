@@ -6,11 +6,16 @@ source ~/.local/share/omarchy/default/bash/rc
 
 # Add your own exports, aliases, and functions here.
 alias a='arduino-cli'
-alias amon='arduino-cli monitor -p /dev/ttyACM0'
 alias c='clear'
-alias arduino-ide='exec ~/Desktop/3-resources/appimages/Arduino.AppImage'
-alias logseq='exec ~/Downloads/Logseq.AppImage'
 alias neofetch='fastfetch'
+
+# overriding omarchy defaults
+alias ls='eza -lh --group-directories-first --icons=auto --no-user --no-permissions'
+alias lsd='eza -lh --group-directories-first --icons=auto'
+alias lsda='lsd -a'
+alias lt='eza -lh --tree --level=2 --icons --git  --no-user --no-permissions'
+alias ltd='eza -lh --tree --level=2 --long --icons --git'
+alias ltda='ltd -a'
 
 # Yazi "cd" replacement
 function y() {
@@ -28,3 +33,8 @@ export VISUAL=nvim
 # uv
 export PATH="/home/hamza/.local/share/../bin:$PATH"
 
+export PATH=$PATH:$HOME/.local/opt/go/bin
+export PATH=$PATH:$HOME/go/bin
+
+# Disabling "Show all resutls.." on hitting esc (for nvim)
+shopt -u progcomp
