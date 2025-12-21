@@ -8,8 +8,9 @@ source ~/.local/share/omarchy/default/bash/rc
 alias a='arduino-cli'
 alias c='clear'
 alias neofetch='fastfetch'
+alias sba="source .venv/bin/activate"
 
-# overriding omarchy defaults
+# overriding omarchy ls defaults
 alias ls='eza -lh --group-directories-first --icons=auto --no-user --no-permissions'
 alias lsd='eza -lh --group-directories-first --icons=auto'
 alias lsda='lsd -a'
