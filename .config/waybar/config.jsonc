@@ -56,7 +56,7 @@
     "separate-outputs": true,
   },
   "clock": {
-    "format": "{:%H:%M }",
+    "format": "{:%I:%M %p}",
     "format-alt": "{:L%d %B %Y}",
     "tooltip-format": "<span>{calendar}</span>",
     "calendar": {
