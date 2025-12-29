@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Install packages
-pacman -S --noconfirm stow google-chrome exfat-utils blender discord dust yazi bat
+pacman -S --noconfirm stow google-chrome blender discord dust yazi bat kdeconnect hyprmon
 
 echo "Cloning dotfiles"
 git clone https://github.com/HamzaHeikal2011/dotfiles.git
