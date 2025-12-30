@@ -1,24 +1,36 @@
-# If not running interactively, don't do anything (leave this at the top of this file)
-[[ $- != *i* ]] && return
+# ~/.zshrc
 
-# All the default Omarchy aliases and functions
-source ~/.local/share/omarchy/default/bash/rc
+# CRUCIAL
+bindkey -v
+eval "$(sheldon source)"
+source .local/share/zsh/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 
-# Add your own exports, aliases, and functions here.
+# addons
+eval "$(starship init zsh)"
+eval "$(zoxide init zsh)"
+
+# Aliases:
 alias a='arduino-cli'
 alias c='clear'
 alias neofetch='fastfetch'
 alias sba="source .venv/bin/activate"
+alias '..'='cd ..'
+alias '...'='cd ...'
+alias '....'='cd ....'
 
 # overriding omarchy ls defaults
 alias ls='eza -lh --group-directories-first --icons=auto --no-user --no-permissions'
+alias lsa='ls -a'
 alias lsd='eza -lh --group-directories-first --icons=auto'
 alias lsda='lsd -a'
 alias lt='eza -lh --tree --level=2 --icons --git  --no-user --no-permissions'
+alias lta='lt -a'
 alias ltd='eza -lh --tree --level=2 --long --icons --git'
 alias ltda='ltd -a'
 
-# Yazi "cd" replacement
+# functions
+
+## Yazi
 function y() {
 	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
 	yazi "$@" --cwd-file="$tmp"
@@ -26,15 +38,3 @@ function y() {
 	[ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
 	rm -f -- "$tmp"
 }
-
-# Defaults:
-export EDITOR=nvim
-export VISUAL=nvim
-
-# uv
-export PATH="/home/hamza/.local/share/../bin:$PATH"
-export PATH=$PATH:$HOME/.local/opt/go/bin
-export PATH=$PATH:$HOME/go/bin
-
-# Disabling "Show all resutls.." on hitting esc (for nvim)
-shopt -u progcomp
