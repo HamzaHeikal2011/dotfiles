@@ -3,12 +3,13 @@
 # CRUCIAL
 bindkey -v
 eval "$(sheldon source)"
-source .local/share/zsh/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+source ~/.local/share/zsh/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 
 # addons
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
 
+# --------------------- #
 # Aliases:
 alias cd='z'
 alias c='clear'
@@ -33,6 +34,7 @@ alias g='git'
 alias gcm='g commit -m'
 alias gcam='gcm --ammend'
 
+# --------------------- #
 # functions
 
 ## Yazi
@@ -43,3 +45,11 @@ function y() {
 	[ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
 	rm -f -- "$tmp"
 }
+
+# --------------------- #
+# alt bin sources
+## go
+export PATH=$PATH:$HOME/.local/opt/go/bin
+
+# Generated for envman. Do not edit.
+[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"

@@ -38,3 +38,6 @@ export PATH=$PATH:$HOME/go/bin
 
 # Disabling "Show all resutls.." on hitting esc (for nvim)
 shopt -u progcomp
+
+# Generated for envman. Do not edit.
+[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
