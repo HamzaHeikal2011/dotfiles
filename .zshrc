@@ -10,7 +10,7 @@ eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
 
 # Aliases:
-alias a='arduino-cli'
+alias cd='z'
 alias c='clear'
 alias neofetch='fastfetch'
 alias sba="source .venv/bin/activate"
@@ -27,6 +27,11 @@ alias lt='eza -lh --tree --level=2 --icons --git  --no-user --no-permissions'
 alias lta='lt -a'
 alias ltd='eza -lh --tree --level=2 --long --icons --git'
 alias ltda='ltd -a'
+
+# git Aliases
+alias g='git'
+alias gcm='g commit -m'
+alias gcam='gcm --ammend'
 
 # functions
 
