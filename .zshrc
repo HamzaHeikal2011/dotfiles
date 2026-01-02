@@ -41,6 +41,7 @@ export BAT_THEME=ansi
 # history config 
 bindkey '^k' history-search-backward
 bindkey '^j' history-search-forward
+bindkey '^l' complete-word
 
 HISTSIZE=5000
 HISTFILE=~/.zsh_history
