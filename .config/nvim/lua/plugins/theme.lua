@@ -1,0 +1,1 @@
+/home/hamza/.config/omarchy/current/theme/neovim.lua
