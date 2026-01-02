@@ -53,6 +53,7 @@ require("lazy").setup({
         { "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>" },
       },
     },
+    { "brenoprata10/nvim-highlight-colors" },
     -- import/override with your plugins
     { import = "plugins" },
   },
