@@ -34,7 +34,6 @@ require("lazy").setup({
       },
     }, -- import any extra modules here
     { import = "lazyvim.plugins.extras.ui.mini-animate" },
-    { "prichrd/netrw.nvim", opts = {} },
     {
       "christoomey/vim-tmux-navigator",
       cmd = {
