@@ -18,6 +18,8 @@ require("lazy").setup({
   spec = {
     -- add LazyVim and import its plugins
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
+
+    -- venv-selector
     {
       "linux-cultist/venv-selector.nvim",
       dependencies = {
@@ -34,6 +36,8 @@ require("lazy").setup({
       },
     }, -- import any extra modules here
     { import = "lazyvim.plugins.extras.ui.mini-animate" },
+
+    -- tmux-navigator
     {
       "christoomey/vim-tmux-navigator",
       cmd = {
@@ -52,7 +56,6 @@ require("lazy").setup({
         { "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>" },
       },
     },
-    { "brenoprata10/nvim-highlight-colors" },
     -- import/override with your plugins
     { import = "plugins" },
   },
