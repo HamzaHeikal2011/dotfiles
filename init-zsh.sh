@@ -1,7 +1,7 @@
 #!/bin/zsh
 
 # Install packages
-pacman -S --noconfirm stow google-chrome blender discord dust yazi bat kdeconnect hyprmon
+pacman -S --noconfirm stow google-chrome blender discord yazi kdeconnect hyprmon
 
 echo "Cloning dotfiles"
 git clone https://github.com/HamzaHeikal2011/dotfiles.git
