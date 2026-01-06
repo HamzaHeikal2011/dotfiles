@@ -83,11 +83,6 @@ alias lta='lt -a'
 alias ltd='eza -lh --tree --level=2 --long --icons --git'
 alias ltda='ltd -a'
 
-# git Aliases
-# alias g='git'
-# alias gcm='g commit -m'
-# alias gcam='gcm --ammend'
-
 # --------------------- #
 
 # functions
