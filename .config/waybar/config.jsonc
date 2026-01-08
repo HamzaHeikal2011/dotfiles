@@ -8,8 +8,7 @@
   "width": 650,
   "height": 28,
   "modules-left": [
-    "hyprland/workspaces",
-    "custom/pomodoro",
+    "hyprland/workspaces"
   ],
   "modules-center": [
     "clock",
@@ -94,10 +93,9 @@
   "battery": {
     "format": "{capacity}% {time} {icon}",
     "format-discharging": "{icon}",
-    "format-charging": "{icon} ", // You might want to add a bolt here like: "{icon} "
+    "format-charging": "{icon} ",
     "format-plugged": "",
     "format-icons": {
-      // Font Awesome Horizontal Battery (mapped to 10 steps)
       "charging": ["", "", "", "", "", "", "", "", "", ""],
       "default": ["", "", "", "", "", "", "", "", "", ""],
     },
