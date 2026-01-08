@@ -37,6 +37,7 @@ export BAT_THEME=ansi
 
 # --------------------- #
 
+bindkey -v
 # history config 
 bindkey '^k' history-search-backward
 bindkey '^j' history-search-forward
