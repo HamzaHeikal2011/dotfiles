@@ -24,10 +24,6 @@
   margin-right: 8px;
 }
 
-/* -----------------------------------------------------
- * WORKSPACES: Elastic Pill Animation
- * ----------------------------------------------------- */
-
 #workspaces button {
   /* Removed 'all: initial' to allow transitions */
   padding: 0 5px;
@@ -43,7 +39,6 @@
   transition: all 0.2s ease;
 }
 
-/* The Active "Stretched" Pill */
 #workspaces button.active {
   padding-left: 4px;
   padding-right: 5px;
@@ -61,10 +56,6 @@
 #workspaces button.empty {
   opacity: 0.5;
 }
-
-/* -----------------------------------------------------
- * WINDOW & BAR
- * ----------------------------------------------------- */
 
 window#waybar {
   background-color: #121212;
@@ -151,10 +142,6 @@ tooltip {
   margin-left: 8px;
 }
 
-/* -----------------------------------------------------
- * BATTERY MODULE
- * ----------------------------------------------------- */
-
 #battery {
   margin: 0;
   margin-right: 6px;
@@ -174,7 +161,6 @@ tooltip {
   animation-iteration-count: infinite;
 }
 
-/* Charging Animation */
 #battery.charging {
   animation-name: charging-slide;
   animation-duration: 2s;
@@ -192,4 +178,13 @@ tooltip {
   color: @foreground;
   margin-right: 17px;
   margin-left: 8;
+}
+
+#custom-voxtype {
+  min-width: 12px;
+  margin: 0 0 0 7.5px;
+}
+
+#custom-voxtype.recording {
+  color: #a55555;
 }
