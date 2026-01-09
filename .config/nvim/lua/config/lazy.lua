@@ -19,6 +19,9 @@ require("lazy").setup({
     -- add LazyVim and import its plugins
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
 
+    -- github-nvim-theme
+    { "projekt0n/github-nvim-theme", name = "github-theme" },
+
     -- venv-selector
     {
       "linux-cultist/venv-selector.nvim",
