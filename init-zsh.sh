@@ -7,7 +7,7 @@ echo "Cloning dotfiles"
 git clone https://github.com/HamzaHeikal2011/dotfiles.git
 
 # zsh style prompt
-read "?Copy dotfiles automatically (y/n): " choice
+read "?Copy dotfiles automatically (y/N): " choice
 
 case "$choice" in
   y|Y)
@@ -15,7 +15,7 @@ case "$choice" in
     cd dotfiles || exit 1
     stow --adopt .
     ;;
-  n|N)
+  N)
     echo "Finishing, Enjoy :)"
     exit 0
     ;;
