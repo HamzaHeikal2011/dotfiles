@@ -19,6 +19,7 @@ return {
     opts = {
       ---@class snacks.dashboard.Config
       dashboard = {
+        width = 100,
         sections = {
           ---@diagnostic disable-next-line: assign-type-mismatch
           { padding = 0, align = "center", text = { header, hl = "header" } },
