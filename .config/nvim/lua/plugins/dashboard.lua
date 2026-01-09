@@ -9,11 +9,7 @@ local header = [[
 ██████  █████████████████████ ████ █████ █████ ████ ██████
 ]]
 
--- Dashboard configuration and startup screen customization
--- Contains Snacks.nvim dashboard setup with UpHill Solutions branding and custom theming
 return {
-  -- Snacks: Multi-purpose UI and utility plugin with dashboard and word highlighting
-  -- Custom dashboard with UpHill Solutions branding and enhanced word navigation
   {
     "folke/snacks.nvim",
     opts = {
