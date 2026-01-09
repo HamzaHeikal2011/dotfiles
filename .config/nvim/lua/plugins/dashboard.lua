@@ -1,36 +1,37 @@
+-- lua/plugins/dashboard.lua
+local header = [[
+      ████ ██████           █████      ██    UpHill Solutions
+     ███████████             █████                            
+     █████████ ███████████████████ ███   ███████████  
+    █████████  ███    █████████████ █████ ██████████████  
+   █████████ ██████████ █████████ █████ █████ ████ █████  
+ ███████████ ███    ███ █████████ █████ █████ ████ █████ 
+██████  █████████████████████ ████ █████ █████ ████ ██████
+]]
+
+-- Dashboard configuration and startup screen customization
+-- Contains Snacks.nvim dashboard setup with UpHill Solutions branding and custom theming
 return {
-  "folke/snacks.nvim",
-  optional = true,
-  opts = {
-    dashboard = {
-      width = 100,
-      preset = {
-        header = [[  
-                                                                       
-        ████ ██████           █████      ██                     
-       ███████████             █████                             
-       █████████ ███████████████████ ███   ███████████   
-      █████████  ███    █████████████ █████ ██████████████   
-     █████████ ██████████ █████████ █████ █████ ████ █████   
-   ███████████ ███    ███ █████████ █████ █████ ████ █████  
-  ██████  █████████████████████ ████ █████ █████ ████ ██████ 
- ]],
-      --stylua: ignore
-      ---@type snacks.dashboard.Item[]
-      keys = {
-          { icon = " ", desc = "Find File", action = ":lua Snacks.dashboard.pick('files')", key = "f" }, { icon = " ", desc = "New File", action = ":ene | startinsert", key = "n" },
-          ---@diagnostic disable-next-line: missing-fields
-          { icon = " ", desc = "Explorer", action = function() vim.cmd("Neotree toggle") end, key = "e" },
-          { icon = " ", desc = "Recent Files", action = ":lua Snacks.dashboard.pick('oldfiles')", key = "r" },
-          { icon = " ", desc = "Find Text", action = ":lua Snacks.dashboard.pick('live_grep')", key = "g" },
-          { icon = " ", desc = "Config", action = ":lua Snacks.dashboard.pick('files', {cwd = vim.fn.stdpath('config')})", key = "c" },
-          { icon = "󰦛 ", key = "s", desc = "Restore Session", section = "session" },
-          { icon = "󰁯 ", action = function() require("persistence").load({ last = true }) end, desc = "Restore Last Session", key = "S" },
-          { icon = " ", desc = "Lazy Extras", action = ":LazyExtras", key = "x" },
-          { icon = "󰒲 ", key = "l", desc = "Lazy", action = ":Lazy", enabled = package.loaded.lazy },
-          { icon = " ", key = "q", desc = "Quit", action = ":qa" },
+  -- Snacks: Multi-purpose UI and utility plugin with dashboard and word highlighting
+  -- Custom dashboard with UpHill Solutions branding and enhanced word navigation
+  {
+    "folke/snacks.nvim",
+    opts = {
+      ---@class snacks.dashboard.Config
+      dashboard = {
+        sections = {
+          ---@diagnostic disable-next-line: assign-type-mismatch
+          { padding = 0, align = "center", text = { header, hl = "header" } },
+          ---@diagnostic disable-next-line: assign-type-mismatch
+          { padding = 2, align = "center", text = { "[ https://uphillsolutions.tech ]", hl = "Identifier" } },
+          --{ section = "terminal", align = "center", cmd = "curl -s 'wttr.in/?0'", indent = 20 },
+          { icon = " ", title = "Keymaps", section = "keys", indent = 2, padding = 1 },
+          { icon = " ", title = "Recent Files", section = "recent_files", indent = 2, padding = 1 },
+          { icon = " ", title = "Projects", section = "projects", indent = 2, padding = 1 },
+          { section = "startup" },
         },
       },
+      words = { enabled = true },
     },
   },
 }
