@@ -291,7 +291,7 @@
 .widget-buttons-grid {
   border-radius: 8px;
   padding: 6px 15px;
-  border: 1px solid @background-alt;
+  border: 0px solid @background-alt;
   background: @background;
 }
 
