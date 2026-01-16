@@ -68,7 +68,6 @@ zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 # Aliases:
 alias ff="fzf --preview 'bat --style=numbers --color=always {}'"
 alias c='clear'
-alias neofetch='fastfetch'
 alias vim='nvim'
 alias vi='nvim'
 alias sba="source .venv/bin/activate"

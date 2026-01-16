@@ -25,7 +25,7 @@ prefix = "/"
 provider = "providerlist"
 
 [[providers.prefixes]]
-prefix = "."
+prefix = "'"
 provider = "files"
 
 [[providers.prefixes]]
