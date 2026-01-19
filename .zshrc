@@ -31,6 +31,7 @@ zinit cdreplay -q
 
 # addons
 eval "$(starship init zsh)"
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv zsh)"
 eval "$(zoxide init --cmd cd zsh)"
 eval "$(fzf --zsh)"
 export BAT_THEME=ansi
@@ -68,8 +69,6 @@ zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 # Aliases:
 alias ff="fzf --preview 'bat --style=numbers --color=always {}'"
 alias c='clear'
-alias vim='nvim'
-alias vi='nvim'
 alias sba="source .venv/bin/activate"
 alias lg="lazygit"
 alias '..'='cd ..'
