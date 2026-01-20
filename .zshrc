@@ -1,8 +1,8 @@
 # ~/.zshrc
 
 # --------------------- #
-
 # plugins manager
+
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 if [ ! -d "$ZINIT_HOME" ]; then
    mkdir -p "$(dirname $ZINIT_HOME)"
@@ -28,18 +28,17 @@ zinit snippet OMZP::command-not-found
 autoload -Uz compinit && compinit
 zinit cdreplay -q
 # --------------------- #
-
 # addons
+
 eval "$(starship init zsh)"
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv zsh)"
 eval "$(zoxide init --cmd cd zsh)"
 eval "$(fzf --zsh)"
 export BAT_THEME=ansi
 
 # --------------------- #
+# Keybindings
 
 bindkey -v
-# history config 
 bindkey '^k' history-search-backward
 bindkey '^j' history-search-forward
 
@@ -56,8 +55,8 @@ setopt hist_ignore_dups
 setopt hist_find_no_dups
 
 # --------------------- #
-
 # zsh-autocomplete
+
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':completion:*' menu no
@@ -65,8 +64,8 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
 # --------------------- #
-
 # Aliases:
+
 alias ff="fzf --preview 'bat --style=numbers --color=always {}'"
 alias c='clear'
 alias sba="source .venv/bin/activate"
@@ -86,7 +85,6 @@ alias ltd='eza -lh --tree --level=2 --long --icons --git'
 alias ltda='ltd -a'
 
 # --------------------- #
-
 # functions
 
 ## Yazi
@@ -99,8 +97,8 @@ function y() {
 }
 
 # --------------------- #
-
 # alt bin sources
+
 ## go
 export PATH=$PATH:$HOME/.local/opt/go/bin
 
