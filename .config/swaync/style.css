@@ -1,6 +1,6 @@
 @define-color background      #0F0F0F;
 @define-color text            #c4c4c4;
-@define-color text-alt        #787c99;
+@define-color text-alt        #c4c4c4;
 @define-color background-alt  #404040;
 @define-color selected        alpha(@text-alt, .4);
 @define-color hover           alpha(@selected, .4);
@@ -31,8 +31,9 @@
 
 .notification-row .inline-reply-entry {
   padding: 5px 10px;
-  background: @background-alt;
+  background: @background;
   border-radius: 8px;
+  border: 1px solid @background-alt;
 }
 
 .notification-row .inline-reply-button {
@@ -85,7 +86,7 @@
   margin: 6px;
   padding: 2px;
   border-radius: 8px;
-  background: transparent;
+  background: @background-alt;
 }
 
 .notification-background .close-button:hover {
@@ -119,7 +120,7 @@
 }
 
 .control-center .notification-background {
-  background: @background-alt;
+  background: @background;
   margin: 7px 0;
 }
 
