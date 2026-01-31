@@ -19,17 +19,6 @@ require("lazy").setup({
     -- add LazyVim and import its plugins
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
 
-    -- oasis.nvim
-    {
-      "uhs-robert/oasis.nvim",
-      lazy = false,
-      priority = 1000,
-      config = function()
-        require("oasis").setup() -- (see Configuration below for all customization options)
-        vim.cmd.colorscheme("oasis") -- After setup, apply theme (or any style like "oasis-night")
-      end,
-    },
-
     -- venv-selector
     {
       "linux-cultist/venv-selector.nvim",

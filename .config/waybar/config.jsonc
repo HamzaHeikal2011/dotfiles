@@ -4,7 +4,7 @@
   "layer": "top",
   "margin-top": 5,
   "position": "top",
-  "spacing": 0,
+  "spacing": 1,
   "width": 650,
   "height": 28,
   "modules-left": [
@@ -20,7 +20,7 @@
     "group/tray-expander", 
     "network", 
     "bluetooth", 
-    "pulseaudio",
+    // "pulseaudio",
     "custom/notification",
     "battery"
   ],
