@@ -19,15 +19,6 @@ require("lazy").setup({
     -- add LazyVim and import its plugins
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
 
-    -- graphiteblack
-    {
-      "HamzaHeikal2011/graphiteblack.nvim",
-      lazy = false,
-      priority = 1000,
-      config = function()
-        vim.cmd.colorscheme("graphiteblack")
-      end,
-    },
     -- venv-selector
     {
       "linux-cultist/venv-selector.nvim",
@@ -47,6 +38,9 @@ require("lazy").setup({
 
     -- mini animate
     { import = "lazyvim.plugins.extras.ui.mini-animate" },
+
+    -- golf
+    { "vuciv/golf" },
 
     -- tmux-navigator
     {
