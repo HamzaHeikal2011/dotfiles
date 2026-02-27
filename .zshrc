@@ -70,6 +70,7 @@ alias ff="fzf --preview 'bat --style=numbers --color=always {}'"
 alias c='clear'
 alias sba="source .venv/bin/activate"
 alias lg="lazygit"
+alias t='tmux'
 alias '..'='cd ..'
 alias '...'='cd ...'
 alias '....'='cd ....'
