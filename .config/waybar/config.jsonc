@@ -104,13 +104,6 @@
     "interval": 3,
     "on-click": "omarchy-launch-wifi",
   },
-  "custom/pomodoro": {
-    "format": "{}",
-    "return-type": "json",
-    "exec": "waybar-module-pomodoro",
-    "on-click": "waybar-module-pomodoro toggle",
-    "on-click-right": "waybar-module-pomodoro reset",
-  },
   "battery": {
     "format": "{capacity}% {time} {icon}",
     "format-discharging": "{icon}",
