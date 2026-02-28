@@ -88,6 +88,12 @@ alias ltda='ltd -a'
 # --------------------- #
 # functions
 
+## neovim
+n() { if [ "$#" -eq 0 ]; then command nvim . ; else command nvim "$@"; fi; }
+
+## tmux
+source ~/.dotfiles/zsh/tmux
+
 ## Yazi
 function y() {
 	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
