@@ -39,6 +39,8 @@ export BAT_THEME=ansi
 # Keybindings
 
 bindkey -v
+bindkey '^i' history-search-backward
+bindkey '^u' history-search-forward
 bindkey '^k' history-search-backward
 bindkey '^j' history-search-forward
 

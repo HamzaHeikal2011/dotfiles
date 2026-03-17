@@ -1,7 +1,7 @@
 @define-color background      #0F0F0F;
 @define-color text            #c4c4c4;
 @define-color text-alt        #c4c4c4;
-@define-color background-alt  #404040;
+@define-color background-alt  #8A8A8A;
 @define-color selected        alpha(@text-alt, .4);
 @define-color hover           alpha(@selected, .4);
 @define-color urgent          @text-alt;
