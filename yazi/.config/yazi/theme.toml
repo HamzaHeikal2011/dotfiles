@@ -1,0 +1,13 @@
+[icon]
+prepend_dirs = [
+    { name = "go", text = ""},
+    
+    { name = "personal", text = "󰸐"},
+    { name = "github.com", text = ""},
+    { name = "cloned", text = ""},
+    
+    { name = "local", text = ""},
+    { name = "python", text = ""},
+    { name = "blender", text = ""},
+]
+
