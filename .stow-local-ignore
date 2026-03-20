@@ -1,5 +1,13 @@
+# Stow ignore file
+# Patterns are matched against the full path of each file/directory
+
+README
+README\.md
+README\.txt
+README\.rst
+
+init-zsh\.sh
+init-bash\.sh
+
 \.git
-\README.*
-zsh/init-zsh.sh
 zsh/tmux
-bash/init-bash.sh
