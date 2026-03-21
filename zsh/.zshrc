@@ -111,8 +111,11 @@ function y() {
 ## go
 export PATH=$PATH:$HOME/.local/opt/go/bin
 
-# Generated for envman. Do not edit.
+## Generated for envman. Do not edit.
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
+
+## npm
+export PATH="/home/hamza/.local/share/mise/installs/node/25.1.0/bin:$PATH"
 
 export PATH=$PATH:/home/hamza/.spicetify
 export PATH=$PATH:~/.spicetify
