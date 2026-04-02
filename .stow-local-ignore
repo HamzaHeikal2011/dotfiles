@@ -11,3 +11,5 @@ init-bash\.sh
 
 \.git
 zsh/tmux
+zsh/variable.sh
+zsh/variable (Secretless).sh
