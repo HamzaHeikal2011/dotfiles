@@ -71,6 +71,10 @@ zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 alias ff="fzf --preview 'bat --style=numbers --color=always {}'"
 alias c='clear'
 alias sba="source .venv/bin/activate"
+alias jet='openclaw'
+alias jett='openclaw tui'
+alias disk='udiskie'
+alias 'disk -u'='udiskie-umount -a'
 alias lg="lazygit"
 alias t='tmux'
 alias '..'='cd ..'
@@ -95,6 +99,7 @@ n() { if [ "$#" -eq 0 ]; then command nvim . ; else command nvim "$@"; fi; }
 
 ## tmux
 source ~/.dotfiles/zsh/tmux
+source ~/.dotfiles/zsh/variable.sh
 
 ## Yazi
 function y() {
