@@ -99,7 +99,6 @@ n() { if [ "$#" -eq 0 ]; then command nvim . ; else command nvim "$@"; fi; }
 
 ## tmux
 source ~/.dotfiles/zsh/tmux
-source ~/.dotfiles/zsh/variable.sh
 
 ## Yazi
 function y() {
@@ -124,3 +123,6 @@ export PATH="/home/hamza/.local/share/mise/installs/node/25.1.0/bin:$PATH"
 
 export PATH=$PATH:/home/hamza/.spicetify
 export PATH=$PATH:~/.spicetify
+
+# OpenClaw Completion
+source "/home/hamza/.openclaw/completions/openclaw.zsh"
