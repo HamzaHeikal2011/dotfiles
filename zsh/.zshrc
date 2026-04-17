@@ -112,6 +112,9 @@ function y() {
 # --------------------- #
 # alt bin sources
 
+## Homebrew (Linuxbrew)
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
 ## go
 export PATH=$PATH:$HOME/.local/opt/go/bin
 
