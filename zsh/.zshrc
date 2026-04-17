@@ -112,7 +112,7 @@ function y() {
 # --------------------- #
 # alt bin sources
 
-## Homebrew (Linuxbrew)
+## Homebrew (Lenovo Yoga 500 ONLY)
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 ## go
@@ -127,5 +127,5 @@ export PATH="/home/hamza/.local/share/mise/installs/node/25.1.0/bin:$PATH"
 export PATH=$PATH:/home/hamza/.spicetify
 export PATH=$PATH:~/.spicetify
 
-# OpenClaw Completion
-source "/home/hamza/.openclaw/completions/openclaw.zsh"
+# OpenClaw Completion (Lenovo Yoga 500 ONLY)
+# source "/home/hamza/.openclaw/completions/openclaw.zsh"
