@@ -98,7 +98,7 @@ alias ltda='ltd -a'
 n() { if [ "$#" -eq 0 ]; then command nvim . ; else command nvim "$@"; fi; }
 
 ## tmux
-source ~/.dotfiles/zsh/tmux
+source ~/.dotfiles/sources/zsh/tmux
 
 ## Yazi
 function y() {
