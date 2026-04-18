@@ -112,6 +112,9 @@ function y() {
 # --------------------- #
 # alt bin sources
 
+## Hamza dotfiles
+export PATH=$PATH:$HOME/.dotfiles/bin/
+
 ## Homebrew (Lenovo Yoga 500 ONLY)
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
