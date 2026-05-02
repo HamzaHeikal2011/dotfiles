@@ -104,6 +104,7 @@ case "$choice" in
     typeset -a FAILED
 
     stow_pkg ~/.bashrc                 bash        true
+    stow_pkg /etc/keyd/default.conf    keyd        true
     stow_pkg ~/.config/fontconfig      fontconfig
     stow_pkg ~/.config/ghostty         ghostty
     stow_pkg ~/.config/hypr            hypr
