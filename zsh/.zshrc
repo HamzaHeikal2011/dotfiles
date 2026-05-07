@@ -67,7 +67,7 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
 # Aliases
-alias ls='ls --color'
+alias ls='eza'
 alias vim='nvim'
 alias c='clear'
 alias jet='openclaw'
@@ -85,3 +85,6 @@ eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
 export PATH="/home/hamza/.local/share/mise/installs/node/25.1.0/bin:$PATH"
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
+
+# OpenClaw Completion
+source "/home/hamza/.openclaw/completions/openclaw.zsh"
