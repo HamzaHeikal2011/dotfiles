@@ -5,10 +5,15 @@
 
 # --- Colors ------------------------------------------------------------------
 autoload -U colors && colors
+
 info()    { echo "${fg[cyan]}[INFO]${reset_color}  $1" }
 success() { echo "${fg[green]}[OK]${reset_color}    $1" }
 warn()    { echo "${fg[yellow]}[WARN]${reset_color}  $1" }
 error()   { echo "${fg[red]}[ERR]${reset_color}   $1" }
+
+# --- Globals -----------------------------------------------------------------
+typeset -a FAILED
+DOTFILES_DIR=""
 
 # --- Stow helper -------------------------------------------------------------
 stow_pkg() {
@@ -24,7 +29,7 @@ stow_pkg() {
     rm -rf "$target"
   fi
 
-  if stow "$pkg" 2>/dev/null; then
+  if stow -t / "$pkg" 2>/dev/null; then
     success "$pkg"
   else
     error "Failed to stow $pkg"
@@ -39,6 +44,7 @@ find_dotfiles_dir() {
   # Check if we're already inside a dotfiles dir
   local cwd
   cwd="$(pwd)"
+
   local cwd_base
   cwd_base="$(basename "$cwd")"
 
@@ -57,24 +63,38 @@ find_dotfiles_dir() {
 
   if (( ${#candidates[@]} == 1 )); then
     # Strip the "(current directory)" label if present
-    DOTFILES_DIR="${candidates[1]% \(current directory\)}"
+    DOTFILES_DIR="${candidates[1]% \(current\ directory\)}"
+
     info "Found dotfiles directory: $DOTFILES_DIR"
+
     read "?Is this correct? (y/N): " confirm
-    [[ "$confirm" != "y" && "$confirm" != "Y" ]] && { warn "Aborted by user."; exit 0 }
+
+    [[ "$confirm" != "y" && "$confirm" != "Y" ]] && {
+      warn "Aborted by user."
+      exit 0
+    }
+
   else
     echo ""
     info "Multiple dotfiles directories found. Please select one:"
     echo ""
-    for i in {1..${#candidates[@]}}; do
+
+    for (( i=1; i<=${#candidates[@]}; i++ )); do
       echo "  [$i] ${candidates[$i]}"
     done
+
     echo "  [0] None of these — abort"
     echo ""
+
     read "?Enter choice: " sel
+
     if [[ "$sel" == "0" ]]; then
-      warn "Aborted by user."; exit 0
+      warn "Aborted by user."
+      exit 0
+
     elif [[ "$sel" =~ ^[0-9]+$ ]] && (( sel >= 1 && sel <= ${#candidates[@]} )); then
-      DOTFILES_DIR="${candidates[$sel]% \(current directory\)}"
+      DOTFILES_DIR="${candidates[$sel]% \(current\ directory\)}"
+
     else
       error "Invalid selection."
       exit 1
@@ -82,26 +102,51 @@ find_dotfiles_dir() {
   fi
 }
 
+# --- Dependency checks -------------------------------------------------------
+check_dependencies() {
+  local missing=()
+
+  command -v stow >/dev/null 2>&1 || missing+=("stow")
+
+  if (( ${#missing[@]} > 0 )); then
+    error "Missing required dependencies:"
+    for dep in "${missing[@]}"; do
+      echo "  • $dep"
+    done
+    exit 1
+  fi
+}
+
 # --- Main --------------------------------------------------------------------
+clear
+
 echo ""
 echo "╔══════════════════════════════════════╗"
-echo "║   Auto Machine Initializer           ║"
+echo "║      Auto Machine Initializer        ║"
 echo "╚══════════════════════════════════════╝"
 echo ""
+
+check_dependencies
 
 read "?Copy dotfiles automatically? (y/N): " choice
 
 case "$choice" in
   y|Y)
+    echo ""
     info "Proceeding with dotfiles setup..."
     echo ""
 
     find_dotfiles_dir
+
     echo ""
     info "Using: $DOTFILES_DIR"
-    cd "$DOTFILES_DIR" || { error "Could not cd into $DOTFILES_DIR"; exit 1 }
 
-    typeset -a FAILED
+    cd "$DOTFILES_DIR" || {
+      error "Could not cd into $DOTFILES_DIR"
+      exit 1
+    }
+
+    # --- Stow packages -------------------------------------------------------
 
     stow_pkg ~/.config/elephant        elephant
     stow_pkg ~/.config/fontconfig      fontconfig
@@ -124,10 +169,16 @@ case "$choice" in
       success "All packages stowed successfully!"
     else
       error "The following packages failed to stow:"
+      echo ""
+
       for pkg in "${FAILED[@]}"; do
         echo "  • $pkg"
       done
+
+      echo ""
+      exit 1
     fi
+    ;;
 
   n|N|"")
     echo ""
@@ -136,6 +187,7 @@ case "$choice" in
     ;;
 
   *)
+    echo ""
     error "Invalid input: '$choice'. Expected y or N."
     exit 1
     ;;
