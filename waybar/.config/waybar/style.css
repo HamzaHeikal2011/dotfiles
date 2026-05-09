@@ -83,10 +83,6 @@ window#waybar {
   margin-right: 7px;
 }
 
-#custom-omarchy {
-  margin-right: 8px;
-}
-
 #custom-screenrecording-indicator,
 #custom-idle-indicator,
 
@@ -175,10 +171,6 @@ tooltip {
 }
 
 #battery.plugged,
-
-#custom-omarchy {
-  color: lightblue;
-}
 
 #network {
   color: @foreground;
