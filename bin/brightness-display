@@ -5,8 +5,8 @@
 
 step="${1:-+5%}"
 
-if omarchy-hyprland-monitor-focused-apple; then
-  omarchy-brightness-display-apple "$step"
+if $HOME/.dotfiles/bin/hyprland-monitor-focused-apple; then
+  $HOME/.dotfiles/bin/brightness-display-apple "$step"
   exit
 fi
 
@@ -48,4 +48,4 @@ fi
 brightnessctl -d "$device" set "$step" >/dev/null
 
 # Use SwayOSD to display the new brightness setting.
-omarchy-swayosd-brightness "$(brightnessctl -d "$device" -m | cut -d',' -f4 | tr -d '%')"
+$HOME/.dotfiles/bin/swayosd-brightness "$(brightnessctl -d "$device" -m | cut -d',' -f4 | tr -d '%')"

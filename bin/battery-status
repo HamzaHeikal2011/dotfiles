@@ -17,8 +17,8 @@ power_rate=$(echo "$battery_info" | awk '/energy-rate/ {
 }')
 
 state=$(echo "$battery_info" | awk '/state/ { print $2; exit }')
-time_remaining=$(omarchy-battery-remaining-time)
-capacity=$(omarchy-battery-capacity)
+time_remaining=$($HOME/.dotfiles/bin/battery-remaining-time)
+capacity=$($HOME/.dotfiles/bin/battery-capacity)
 
 if [[ $state == "charging" ]]; then
     echo "󰁹    Battery ${percentage}%  ·  ${time_remaining} to full  ·   ${power_rate}W / ${capacity}Wh"
