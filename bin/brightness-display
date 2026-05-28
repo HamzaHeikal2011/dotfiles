@@ -1,8 +1,8 @@
 #!/bin/bash
 
-# omarchy:summary=Adjust brightness on the most likely display device.
-# omarchy:args=<step>
+# summary=Adjust brightness on the most likely display device.
 
+# args=<step>
 step="${1:-+5%}"
 
 if $HOME/.dotfiles/bin/hyprland-monitor-focused-apple; then
@@ -25,22 +25,22 @@ current=$(brightnessctl -d "$device" -m | cut -d',' -f4 | tr -d '%')
 # Apply non-uniform step size: 1% steps if at or below 5%, otherwise set an
 # absolute target percentage to avoid raw backlight rounding causing uneven OSD steps.
 if [[ $step == "+5%" ]]; then
-  if (( current < 5 )); then
-    (( target = current + 1 ))
+  if ((current < 5)); then
+    ((target = current + 1))
   else
-    (( target = current + 5 ))
+    ((target = current + 5))
   fi
 
-  (( target > 100 )) && target=100
+  ((target > 100)) && target=100
   step="$target%"
 elif [[ $step == "5%-" ]]; then
-  if (( current <= 5 )); then
-    (( target = current - 1 ))
+  if ((current <= 5)); then
+    ((target = current - 1))
   else
-    (( target = current - 5 ))
+    ((target = current - 5))
   fi
 
-  (( target < 1 )) && target=1
+  ((target < 1)) && target=1
   step="$target%"
 fi
 

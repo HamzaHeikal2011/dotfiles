@@ -1,8 +1,8 @@
 #!/bin/bash
 
-# omarchy:summary=Adjust the brightness on Apple Studio Displays and Apple XDR Displays using asdcontrol.
+# summary=Adjust the brightness on Apple Studio Displays and Apple XDR Displays using asdcontrol.
 
-if (( $# == 0 )); then
+if (($# == 0)); then
   echo "Adjust Apple Display brightness by passing +5%, 5%-, or 100%"
 else
   step="$1"
@@ -15,7 +15,7 @@ else
     [[ -e $path ]] && devices+=("$path")
   done
 
-  if (( ${#devices[@]} == 0 )); then
+  if ((${#devices[@]} == 0)); then
     echo "No Apple Display HID device found"
     exit 1
   fi
@@ -28,5 +28,5 @@ else
 
   sudo asdcontrol "$device" -- "$step" >/dev/null
   value="$(sudo asdcontrol "$device" | awk -F= '/BRIGHTNESS=/{print $2+0}')"
-  omarchy-swayosd-brightness "$(( value * 100 / 60000 ))"
+  ~/.dotfiles/bin/swayosd-brightness "$((value * 100 / 60000))"
 fi
