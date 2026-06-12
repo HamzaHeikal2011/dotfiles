@@ -92,8 +92,17 @@ eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
 export GOPATH="$HOME/dev/go"
 export PATH="$GOPATH/bin:$PATH"
-export PATH="/home/hamza/.local/share/mise/installs/node/25.1.0/bin:$PATH"
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
 
 # OpenClaw Completion
 source "/home/hamza/.openclaw/completions/openclaw.zsh"
+
+# Load a few important annexes, without Turbo
+# (this is currently required for annexes)
+zinit light-mode for \
+    zdharma-continuum/zinit-annex-as-monitor \
+    zdharma-continuum/zinit-annex-bin-gem-node \
+    zdharma-continuum/zinit-annex-patch-dl \
+    zdharma-continuum/zinit-annex-rust
+
+### End of Zinit's installer chunk
