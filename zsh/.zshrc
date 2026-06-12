@@ -75,11 +75,7 @@ alias lt='eza -lh --tree --level=2 --icons --git  --no-user --no-permissions'
 alias lta='lt -a'
 alias ltd='eza -lh --tree --level=2 --long --icons --git'
 alias ltda='ltd -a'
-<<<<<<< HEAD
 alias n='nvim .'
-=======
-alias vim='nvim'
->>>>>>> master
 alias c='clear'
 alias jet='openclaw'
 alias jett='openclaw tui'
@@ -94,12 +90,8 @@ alias '....'='cd ....'
 # Shell integrations
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
-<<<<<<< HEAD
 export GOPATH="$HOME/dev/go"
 export PATH="$GOPATH/bin:$PATH"
-=======
-export PATH="/home/hamza/.local/share/mise/installs/node/25.1.0/bin:$PATH"
->>>>>>> master
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
 
 # OpenClaw Completion
