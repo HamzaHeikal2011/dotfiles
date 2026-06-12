@@ -146,9 +146,14 @@ case "$choice" in
       exit 1
     }
 
+<<<<<<< HEAD:bin/init
     # --- Stow packages -------------------------------------------------------
 
     stow_pkg ~/.config/elephant        elephant
+=======
+    stow_pkg ~/.bashrc                 bash        true
+    stow_pkg /etc/keyd/default.conf    keyd        true
+>>>>>>> master:zsh/init-zsh.sh
     stow_pkg ~/.config/fontconfig      fontconfig
     stow_pkg ~/.config/ghostty         ghostty
     stow_pkg ~/.config/hypr            hypr

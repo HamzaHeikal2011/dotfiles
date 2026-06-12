@@ -108,7 +108,12 @@
     "tooltip-format-discharging": "{power:>1.0f}W↓ {capacity}% {time} ",
     "tooltip-format-charging": "{power:>1.0f}W↑ {capacity}% {time}",
     "interval": 5,
+<<<<<<< HEAD
     "on-click": "~/.dotfiles/bin/menu power",
+=======
+    "on-click": "omarchy-menu power",
+    "on-click-right": "notify-send -u low \"$(omarchy-battery-status)\"",
+>>>>>>> master
     "states": {
       "warning": 20,
       "critical": 10,
@@ -134,8 +139,13 @@
     },
   },
   "custom/screenrecording-indicator": {
+<<<<<<< HEAD
     "on-click": "~/.dotfiles/bin/capture-screenrecording",
     "exec": "~/.dotfiles/sources/waybar/indicators/screen-recording.sh",
+=======
+    "on-click": "omarchy-capture-screenrecording",
+    "exec": "$OMARCHY_PATH/default/waybar/indicators/screen-recording.sh",
+>>>>>>> master
     "signal": 8,
     "return-type": "json"
   },
