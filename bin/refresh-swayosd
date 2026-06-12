@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# summary=Overwrite the user configs for swayosd (controls on-screen feedback for changing volume/songs etc) with the Omarchy defaults and restart the service.
+
+~/.dotfiles/bin/refresh-config swayosd/config.toml
+~/.dotfiles/bin/refresh-config swayosd/style.css
+~/.dotfiles/bin/restart-swayosd

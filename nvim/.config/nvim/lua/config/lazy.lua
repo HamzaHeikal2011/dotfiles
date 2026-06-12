@@ -18,6 +18,8 @@ require("lazy").setup({
   spec = {
     -- add LazyVim and import its plugins
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
+    { import = "lazyvim.plugins.extras.ui.mini-animate" }, -- mini animate
+    { "MunifTanjim/nui.nvim" }, -- nui.nvim
 
     -- venv-selector
     {
@@ -35,12 +37,6 @@ require("lazy").setup({
         options = {}, -- if you add plugin options, they go here.
       },
     },
-
-    -- mini animate
-    { import = "lazyvim.plugins.extras.ui.mini-animate" },
-
-    -- golf
-    { "vuciv/golf" },
 
     -- tmux-navigator
     {
@@ -60,6 +56,56 @@ require("lazy").setup({
         { "<c-l>", "<cmd><C-U>TmuxNavigateRight<cr>" },
         { "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>" },
       },
+    },
+
+    -- neollama
+    {
+      "paradoxical-dev/neollama",
+      dependencies = {
+        "MunifTanjim/nui.nvim",
+        "nvim-lua/plenary.nvim",
+      },
+      config = function()
+        require("neollama").setup({
+          {
+            params = {
+              model = "llama3.1:latest",
+              stream = true,
+            },
+            web_agent = {
+              agent_models = {
+                use_current = false,
+                buffer_agent = { model = "gemma4:31b-cloud" },
+                reviewing_agent = { model = "gemma4:31b-cloud", options = { num_ctx = 256000 } },
+                -- You can set any agent to use the current model using this global
+                -- Any options applied to an agent using this global will not be applied to the sessions current model
+                integration_agent = { model = _G.NeollamaModel, options = { temperature = 0.5 } },
+              },
+            },
+            layout = {
+              border = {
+                default = "double",
+              },
+              input = {
+                hl = { fg = "#C9C7CD", bold = true, italic = true },
+              },
+            },
+          },
+        })
+        -- Initialization keymaps will be set externally
+        vim.api.nvim_set_keymap(
+          "n",
+          "<leader>cc",
+          '<cmd>lua require("neollama").initialize()<CR>',
+          { noremap = true, silent = true }
+        )
+        vim.api.nvim_set_keymap(
+          "v",
+          "<leader>cc",
+          '<cmd>lua require("neollama").initialize()<CR>',
+          { noremap = true, silent = true }
+        )
+      end,
     },
 
     -- import/override with your plugins

@@ -1,4 +1,4 @@
-@import "../omarchy/current/theme/waybar.css";
+@import "../../.dotfiles/theme/waybar.css";
 
 * {
   color: @foreground;
@@ -81,10 +81,6 @@ window#waybar {
 #bluetooth {
   color: @foreground;
   margin-right: 7px;
-}
-
-#custom-omarchy {
-  margin-right: 8px;
 }
 
 #custom-screenrecording-indicator,
@@ -175,10 +171,6 @@ tooltip {
 }
 
 #battery.plugged,
-
-#custom-omarchy {
-  color: lightblue;
-}
 
 #network {
   color: @foreground;
