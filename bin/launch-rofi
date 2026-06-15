@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# Ensure rofi service is running
+if ! pgrep -f "rofi" >/dev/null; then
+  setsid uwsm-app -- env GSK_RENDERER=cairo rofi --gapplication-service &
+fi
+
+exec rofi -show
