@@ -1,0 +1,13 @@
+[
+  {"file": "autostart.conf", "lua": "autostart.lua", "status": "verified"},
+  {"file": "bindings.conf", "lua": "bindings.lua", "status": "verified"},
+  {"file": "envs.conf", "lua": "envs.lua", "status": "verified"},
+  {"file": "looknfeel.conf", "lua": "looknfeel.lua", "status": "verified"},
+  {"file": "windows.conf", "lua": "windows.lua", "status": "verified"},
+  {"file": "monitors.conf", "lua": "monitors.lua", "status": "verified"},
+  {"file": "input.conf", "lua": "input.lua", "status": "verified"},
+  {"file": "hyprlock.conf", "lua": "hyprlock.lua", "status": "verified"},
+  {"file": "hypridle.conf", "lua": "hypridle.lua", "status": "verified"},
+  {"file": "hyprsunset.conf", "lua": "hyprsunset.lua", "status": "verified"},
+  {"file": "xdph.conf", "lua": "xdph.lua", "status": "verified"}
+]

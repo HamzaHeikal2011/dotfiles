@@ -1,0 +1,38 @@
+-- Generated from consolidated hyprlock.conf
+hl.source("~/.dotfiles/theme/hyprlock.conf")
+
+hl.config({
+  general = {
+    ignore_empty_input = true,
+  },
+  background = {
+    monitor = "",
+    color = "$color",
+    path = "~/.dotfiles/theme/backgrounds/mono_dark_distortion_1.png",
+    blur_passes = 3,
+  },
+  animations = {
+    enabled = false,
+  },
+  ["input-field"] = {
+    monitor = "",
+    size = "650, 100",
+    position = "0, 0",
+    halign = "center",
+    valign = "center",
+    inner_color = "$inner_color",
+    outer_color = "$outer_color",
+    outline_thickness = 1,
+    font_family = "CaskaydiaMono Nerd Font",
+    font_color = "$font_color",
+    placeholder_text = "Enter Password",
+    check_color = "$check_color",
+    fail_text = "<i>$FAIL ($ATTEMPTS)</i>",
+    rounding = 8,
+    shadow_passes = 0,
+    fade_on_empty = false,
+  },
+  auth = {
+    ["fingerprint:enabled"] = false,
+  },
+})
