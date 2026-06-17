@@ -13,10 +13,10 @@ hl.env("QT_QPA_PLATFORMTHEME", "qt5ct")
 hl.env("QT_STYLE_OVERRIDE", "adwaita-dark")
 
 hl.config({
-  xwayland = {
-    force_zero_scaling = true
-  },
-  ecosystem = {
-    no_update_news = true
-  }
+	xwayland = {
+		force_zero_scaling = true,
+	},
+	ecosystem = {
+		no_update_news = true,
+	},
 })

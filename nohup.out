@@ -1,0 +1,20 @@
+[6968:7029:0617/203723.205492:ERROR:chromium/google_apis/gcm/engine/registration_request.cc:291] Registration response error message: DEPRECATED_ENDPOINT
+[6968:7029:0617/203751.767146:ERROR:chromium/google_apis/gcm/engine/registration_request.cc:291] Registration response error message: DEPRECATED_ENDPOINT
+[6968:7029:0617/203846.842065:ERROR:chromium/google_apis/gcm/engine/registration_request.cc:291] Registration response error message: DEPRECATED_ENDPOINT
+[6968:7029:0617/204042.934966:ERROR:chromium/google_apis/gcm/engine/registration_request.cc:291] Registration response error message: DEPRECATED_ENDPOINT
+[6968:7029:0617/204435.121409:ERROR:chromium/google_apis/gcm/engine/registration_request.cc:291] Registration response error message: DEPRECATED_ENDPOINT
+[6968:7029:0617/205229.006386:ERROR:chromium/google_apis/gcm/engine/registration_request.cc:291] Registration response error message: DEPRECATED_ENDPOINT
+[6968:6968:0617/205332.767347:ERROR:components/capture/capture_page.cc:53] Failed RenderWidgetHostView::CopyFromSurface()
+[6968:6968:0617/205522.473049:ERROR:components/capture/capture_page.cc:53] Failed RenderWidgetHostView::CopyFromSurface()
+[6968:6968:0617/205525.457834:ERROR:components/capture/capture_page.cc:53] Failed RenderWidgetHostView::CopyFromSurface()
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+E0000 00:00:1781719104.914362    7026 re2.cc:242] Error parsing '^https?:\/\/(?:[a-z]{2}\.)?[0-9a-z]{5,16}\.[a-z]{3,7}\/[a-z](?=[a-z]{0,25}[0-9A-Z])[0-9a-zA-Z]{3,26}...': invalid perl operator: (?=
+E0000 00:00:1781719104.915580    7026 re2.cc:242] Error parsing '^https:\/\/[-a-z]{8,}\.com\/[f-i](?=[a-z]*[0-9A-Z_-])[0-9A-Z_a-z-]{3,}\/[0-9a-z][-\/0-9A-Z_a-z]{118,...': invalid perl operator: (?=
+E0000 00:00:1781719104.915602    7026 re2.cc:242] Error parsing '^https:\/\/(?:[a-z]{2}\.)?[a-z]{7,14}\.com\/[a-z](?=[a-z]*[0-9A-Z])[0-9A-Za-z]{10,27}\/[A-Za-z]{5}$': invalid perl operator: (?=
+E0000 00:00:1781719104.915618    7026 re2.cc:242] Error parsing '^https?:\/\/(?:[a-z]{2}\.)?[0-9a-z]{5,16}\.[a-z]{3,7}\/[a-z](?=[a-z]{0,25}[0-9A-Z])[0-9a-zA-Z]{3,26}...': invalid perl operator: (?=
+[6968:6968:0617/212008.984204:ERROR:CONSOLE:1] "Uncaught (in promise) Error: No such tab - 1715206426", source: chrome-extension://mpognobbkildjkofajifpdfhcoklimli/bundle.js (1)
+[6968:6968:0617/212015.348998:ERROR:chromium/extensions/browser/extension_host.cc:469] Received EventAck for extension jffbochibkahlbbmanpmndnhmeliecah for an unknown event.
+[6968:6968:0617/212015.349053:ERROR:chromium/extensions/browser/extension_host.cc:469] Received EventAck for extension jffbochibkahlbbmanpmndnhmeliecah for an unknown event.
+[6968:6968:0617/212015.349109:ERROR:chromium/extensions/browser/extension_host.cc:469] Received EventAck for extension jffbochibkahlbbmanpmndnhmeliecah for an unknown event.
+[6968:6968:0617/212015.349143:ERROR:chromium/extensions/browser/extension_host.cc:469] Received EventAck for extension jffbochibkahlbbmanpmndnhmeliecah for an unknown event.
+[6968:6968:0617/212015.543831:ERROR:chromium/extensions/browser/extension_host.cc:469] Received EventAck for extension jffbochibkahlbbmanpmndnhmeliecah for an unknown event.
