@@ -38,14 +38,20 @@ hl.bind(
 -- Close windows
 hl.bind("SUPER + Q", hl.dsp.window.close())
 
--- Mouse
+-- Mouse window ctrl
 hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
 hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
+
+-- Window resizing
+hl.bind(mainMod .. " + code:21", hl.dsp.window.resize({ x = 100, y = 0, relative = true }))
+hl.bind(mainMod .. " + SHIFT + code:21", hl.dsp.window.resize({ x = 0, y = 100, relative = true }))
+hl.bind(mainMod .. " + code:20", hl.dsp.window.resize({ x = -100, y = 0, relative = true }))
+hl.bind(mainMod .. " + SHIFT + code:20", hl.dsp.window.resize({ x = 0, y = -100, relative = true }))
 
 -- Control tiling
 hl.bind("SUPER + T", hl.dsp.window.float({ toggle }))
 hl.bind("SUPER + F", hl.dsp.window.fullscreen({ 1 }))
-hl.bind("SUPER + CTRL + F", hl.dsp.window.fullscreen({ 2 }))
+hl.bind("SUPER + CTRL + F", hl.dsp.window.fullscreen_state({ internal = 0, client = 2, action = "toggle" }))
 
 -- Focus
 hl.bind("SUPER + H", hl.dsp.focus({ direction = "left" }))
@@ -62,7 +68,7 @@ end
 
 -- Scratchpad
 hl.bind("SUPER + S", hl.dsp.workspace.toggle_special("scratchpad"))
-hl.bind("SUPER + ALT + S", hl.dsp.window.move({ workspace = "special:scratchpad", false, activewindow }))
+hl.bind("SUPER + ALT + S", hl.dsp.window.move({ workspace = "special:scratchpad", follow = false }))
 
 -- Window swapping
 hl.bind("SUPER + SHIFT + H", hl.dsp.window.swap({ direction = "left" }))
@@ -76,25 +82,24 @@ hl.bind("ALT + CTRL + TAB", hl.dsp.window.cycle_next({ "prev" }))
 
 -- Menus & Apps
 hl.bind("SUPER + SPACE", hl.dsp.exec_cmd("rofi -show drun"))
-hl.bind("SUPER + CTRL + C", hl.dsp.exec_cmd("~/.dotfiles/bin/menu capture"))
+hl.bind("SUPER + ALT + SPACE", hl.dsp.exec_cmd("rofi -show window"))
 
 -- Aesthetics
 hl.bind("SUPER + SHIFT + SPACE", hl.dsp.exec_cmd("~/.dotfiles/bin/toggle-waybar"))
-hl.bind("SUPER + BACKSPACE", hl.dsp.exec_cmd("~/.dotfiles/bin/hyprland-active-window-transparency-toggle"))
 
 -- Notifications
 hl.bind("SUPER + COMMA", hl.dsp.exec_cmd("swaync-client --close-latest"))
-hl.bind("SUPER + SHIFT + COMMA", hl.dsp.exec_cmd("swaync-client --close-all"))
-hl.bind("SUPER + CTRL + COMMA", hl.dsp.exec_cmd("swaync-client -d"))
-hl.bind(" SUPER + CTRL + ALT + COMMA", hl.dsp.exec_cmd("swaync-client -t"))
+hl.bind("SUPER + CTRL + ALT + COMMA", hl.dsp.exec_cmd("swaync-client --close-all"))
+hl.bind("SUPER + SHIFT + COMMA", hl.dsp.exec_cmd("swaync-client -d"))
+hl.bind(" SUPER + CTRL + COMMA", hl.dsp.exec_cmd("swaync-client -t"))
 
 -- Toggles
 hl.bind("SUPER + CTRL + N", hl.dsp.exec_cmd("~/.dotfiles/bin/toggle-nightlight"))
+hl.bind("SUPER + CTRL + I", hl.dsp.exec_cmd("~/.dotfiles/bin/toggle-idle"))
 hl.bind("SUPER + CTRL + L", hl.dsp.exec_cmd("~/.dotfiles/bin/system-lock"))
 
 -- Captures
 hl.bind("PRINT", hl.dsp.exec_cmd("~/.dotfiles/bin/capture-screenshot"))
-hl.bind("ALT + PRINT", hl.dsp.exec_cmd("~/.dotfiles/bin/menu screenrecord"))
 hl.bind("SUPER + PRINT", hl.dsp.exec_cmd("pkill hyprpicker || hyprpicker -a"))
 
 -- Control panels
