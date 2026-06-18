@@ -38,6 +38,10 @@ hl.bind(
 -- Close windows
 hl.bind("SUPER + Q", hl.dsp.window.close())
 
+-- Mouse
+hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
+hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
+
 -- Control tiling
 hl.bind("SUPER + T", hl.dsp.window.float({ toggle }))
 hl.bind("SUPER + F", hl.dsp.window.fullscreen({ 1 }))
