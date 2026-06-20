@@ -19,7 +19,7 @@ require("lazy").setup({
     -- add LazyVim and import its plugins
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
     { import = "lazyvim.plugins.extras.ui.mini-animate" }, -- mini animate
-    { "MunifTanjim/nui.nvim" }, -- nui.nvim
+    { "MunifTanjim/nui.nvim", branch = "main" }, -- nui.nvim (MUST be on main branch)
 
     -- venv-selector
     {
@@ -58,53 +58,34 @@ require("lazy").setup({
       },
     },
 
-    -- neollama
+    -- wooly.nvim (Ollama chat UI)
     {
-      "paradoxical-dev/neollama",
+      dir = vim.fn.stdpath("config") .. "/lua/wooly.nvim",
+      name = "wooly",
       dependencies = {
         "MunifTanjim/nui.nvim",
         "nvim-lua/plenary.nvim",
       },
       config = function()
-        require("neollama").setup({
-          {
-            params = {
-              model = "llama3.1:latest",
-              stream = true,
+        require("wooly").setup({
+          params = {
+            model = "mistral:7b",
+            stream = true,
+          },
+          web_agent = {
+            enabled = false,
+          },
+          layout = {
+            border = {
+              default = "double",
             },
-            web_agent = {
-              agent_models = {
-                use_current = false,
-                buffer_agent = { model = "gemma4:31b-cloud" },
-                reviewing_agent = { model = "gemma4:31b-cloud", options = { num_ctx = 256000 } },
-                -- You can set any agent to use the current model using this global
-                -- Any options applied to an agent using this global will not be applied to the sessions current model
-                integration_agent = { model = _G.NeollamaModel, options = { temperature = 0.5 } },
-              },
-            },
-            layout = {
-              border = {
-                default = "double",
-              },
-              input = {
-                hl = { fg = "#C9C7CD", bold = true, italic = true },
-              },
+            input = {
+              hl = { fg = "#C9C7CD", bold = true, italic = true },
             },
           },
         })
-        -- Initialization keymaps will be set externally
-        vim.api.nvim_set_keymap(
-          "n",
-          "<leader>cc",
-          '<cmd>lua require("neollama").initialize()<CR>',
-          { noremap = true, silent = true }
-        )
-        vim.api.nvim_set_keymap(
-          "v",
-          "<leader>cc",
-          '<cmd>lua require("neollama").initialize()<CR>',
-          { noremap = true, silent = true }
-        )
+        vim.keymap.set("n", "<leader>cc", function() require("wooly").initialize() end, { silent = true, desc = "wooly: Open chat" })
+        vim.keymap.set("v", "<leader>cc", function() require("wooly").initialize() end, { silent = true, desc = "wooly: Open chat (visual)" })
       end,
     },
 
@@ -121,7 +102,7 @@ require("lazy").setup({
     -- have outdated releases, which may break your Neovim install.
     version = false, -- always use the latest git commit
   },
-  install = { colorscheme = { "tokyonight", "habamax" } },
+  install = { colorscheme = { "matteblack", "tokyonight", "habamax" } },
   checker = {
     enabled = true, -- check for plugin updates periodically
     notify = false, -- notify on update
