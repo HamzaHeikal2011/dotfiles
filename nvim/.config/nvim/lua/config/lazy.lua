@@ -60,7 +60,7 @@ require("lazy").setup({
 
     -- wooly.nvim (Ollama chat UI)
     {
-      dir = vim.fn.stdpath("config") .. "/lua/wooly.nvim",
+      "HamzaHeikal2011/wooly.nvim",
       name = "wooly",
       dependencies = {
         "MunifTanjim/nui.nvim",
