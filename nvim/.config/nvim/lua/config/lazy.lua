@@ -68,24 +68,14 @@ require("lazy").setup({
       },
       config = function()
         require("wooly").setup({
-          params = {
-            model = "mistral:7b",
-            stream = true,
-          },
-          web_agent = {
-            enabled = false,
-          },
+          model = "mistral:7b",
+          stream = true,
           layout = {
-            border = {
-              default = "double",
-            },
-            input = {
-              hl = { fg = "#C9C7CD", bold = true, italic = true },
-            },
+            border = "double",
           },
         })
-        vim.keymap.set("n", "<leader>cc", function() require("wooly").initialize() end, { silent = true, desc = "wooly: Open chat" })
-        vim.keymap.set("v", "<leader>cc", function() require("wooly").initialize() end, { silent = true, desc = "wooly: Open chat (visual)" })
+        vim.keymap.set("n", "<leader>cc", function() require("wooly").open() end, { silent = true, desc = "wooly: Open chat" })
+        vim.keymap.set("v", "<leader>cc", function() require("wooly").open() end, { silent = true, desc = "wooly: Open chat (visual)" })
       end,
     },
 

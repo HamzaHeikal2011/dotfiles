@@ -87,15 +87,15 @@ alias '..'='cd ..'
 alias '...'='cd ...'
 alias '....'='cd ....'
 
+#env values
+env EDITOR='nvim'
+
 # Shell integrations
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
 export GOPATH="$HOME/dev/go"
 export PATH="$GOPATH/bin:$PATH"
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
-
-# OpenClaw Completion
-source "/home/hamza/.openclaw/completions/openclaw.zsh"
 
 # Load a few important annexes, without Turbo
 # (this is currently required for annexes)
