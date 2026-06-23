@@ -58,25 +58,21 @@ require("lazy").setup({
       },
     },
 
-    -- wooly.nvim (Ollama chat UI)
+    -- parley.nvim
     {
-      "HamzaHeikal2011/wooly.nvim",
-      name = "wooly",
-      dependencies = {
-        "MunifTanjim/nui.nvim",
-        "nvim-lua/plenary.nvim",
+      "HamzaHeikal2011/parley.nvim",
+      event = "VeryLazy",
+      opts = {
+        url = "http://127.0.0.1:11434",
+        model = "llama3.2:1b",
       },
-      config = function()
-        require("wooly").setup({
-          model = "mistral:7b",
-          stream = true,
-          layout = {
-            border = "double",
-          },
-        })
-        vim.keymap.set("n", "<leader>cc", function() require("wooly").open() end, { silent = true, desc = "wooly: Open chat" })
-        vim.keymap.set("v", "<leader>cc", function() require("wooly").open() end, { silent = true, desc = "wooly: Open chat (visual)" })
-      end,
+      keys = {
+        { "<leader>oc", "<cmd>Parley<cr>", desc = "Parley" },
+        { "<leader>oa", "<cmd>ParleyAttach<cr>", desc = "Attach selection", mode = "v" },
+        { "<leader>ob", "<cmd>ParleyAttachBuffer<cr>", desc = "Attach buffer" },
+        { "<leader>ox", "<cmd>ParleyClearContext<cr>", desc = "Clear context" },
+        { "<leader>om", "<cmd>ParleyModel<cr>", desc = "Switch model" },
+      },
     },
 
     -- import/override with your plugins
