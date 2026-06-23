@@ -81,8 +81,9 @@ hl.bind("ALT + TAB", hl.dsp.window.cycle_next())
 hl.bind("ALT + CTRL + TAB", hl.dsp.window.cycle_next({ "prev" }))
 
 -- Menus & Apps
-hl.bind("SUPER + SPACE", hl.dsp.exec_cmd("rofi -show drun"))
-hl.bind("SUPER + ALT + SPACE", hl.dsp.exec_cmd("rofi -show window"))
+hl.bind("SUPER + SPACE", hl.dsp.exec_cmd("~/.config/rofi/scripts/launcher_t1"))
+hl.bind("SUPER + ALT + SPACE", hl.dsp.exec_cmd("~/.config/rofi/applets/bin/battery.sh"))
+hl.bind("SUPER + ESCAPE", hl.dsp.exec_cmd("~/.config/rofi/powermenu/type-2/powermenu.sh"))
 
 -- Aesthetics
 hl.bind("SUPER + SHIFT + SPACE", hl.dsp.exec_cmd("~/.dotfiles/bin/toggle-waybar"))
