@@ -1,9 +1,4 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-
 if [[ -f "/home/linuxbrew/.linuxbrew/bin/brew" ]] then
-  # If you're using macOS, you'll want this enabled
   eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 fi
 
@@ -89,6 +84,11 @@ alias '....'='cd ....'
 
 #env values
 env EDITOR='nvim'
+# Openrouter for Claude code
+export OPENROUTER_API_KEY="$(pass show apis/claude-code/openrouter)"
+export ANTHROPIC_BASE_URL="https://openrouter.ai/api"
+export ANTHROPIC_AUTH_TOKEN="$OPENROUTER_API_KEY"
+export ANTHROPIC_API_KEY=""
 
 # Shell integrations
 eval "$(fzf --zsh)"
@@ -97,12 +97,9 @@ export GOPATH="$HOME/dev/go"
 export PATH="$GOPATH/bin:$PATH"
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
 
-# Load a few important annexes, without Turbo
-# (this is currently required for annexes)
 zinit light-mode for \
     zdharma-continuum/zinit-annex-as-monitor \
     zdharma-continuum/zinit-annex-bin-gem-node \
     zdharma-continuum/zinit-annex-patch-dl \
     zdharma-continuum/zinit-annex-rust
 
-### End of Zinit's installer chunk
