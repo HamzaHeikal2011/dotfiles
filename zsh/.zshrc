@@ -82,8 +82,7 @@ alias '..'='cd ..'
 alias '...'='cd ...'
 alias '....'='cd ....'
 
-#env values
-env EDITOR='nvim'
+export EDITOR='nvim'
 # Openrouter for Claude code
 export OPENROUTER_API_KEY="$(pass show apis/claude-code/openrouter)"
 export ANTHROPIC_BASE_URL="https://openrouter.ai/api"
