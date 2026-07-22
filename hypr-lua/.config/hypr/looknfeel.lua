@@ -104,7 +104,8 @@ hl.curve("linear", { type = "bezier", points = { { 0, 0 }, { 1, 1 } } })
 hl.curve("almostLinear", { type = "bezier", points = { { 0.5, 0.5 }, { 0.75, 1 } } })
 hl.curve("quick", { type = "bezier", points = { { 0.15, 0 }, { 0.1, 1 } } })
 
-hl.curve("apple", { type = "spring", mass = 1, stiffness = 150, dampening = 25 })
+hl.curve("apple", { type = "spring", mass = 1, stiffness = 200, dampening = 25 })
+hl.curve("appl", { type = "spring", mass = 1, stiffness = 80, dampening = 22 })
 hl.curve("rubber", { type = "spring", mass = 1, stiffness = 50, dampening = 10 })
 
 hl.animation({ leaf = "global", enabled = true, speed = 10, bezier = "default" })
