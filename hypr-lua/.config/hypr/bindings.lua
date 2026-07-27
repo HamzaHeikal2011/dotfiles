@@ -82,7 +82,6 @@ hl.bind("ALT + CTRL + TAB", hl.dsp.window.cycle_next({ "prev" }))
 
 -- Menus & Apps
 hl.bind("SUPER + SPACE", hl.dsp.exec_cmd("~/.config/rofi/scripts/launcher_t1"))
-hl.bind("SUPER + ALT + SPACE", hl.dsp.exec_cmd("~/.config/rofi/applets/bin/battery.sh"))
 hl.bind("SUPER + ESCAPE", hl.dsp.exec_cmd("~/.config/rofi/powermenu/type-2/powermenu.sh"))
 
 -- Aesthetics
@@ -113,7 +112,7 @@ hl.bind("SUPER + CTRL + T", hl.dsp.exec_cmd("~/.dotfiles/bin/launch-tui btop"))
 hl.bind("SUPER + CTRL + X", hl.dsp.exec_cmd("voxtype record toggle"))
 
 -- Apps
-hl.bind("SUPER + RETURN", hl.dsp.exec_cmd("uwsm-app -- ghostty +new-window"))
+hl.bind("SUPER + RETURN", hl.dsp.exec_cmd("ghostty +new-window"))
 hl.bind("SUPER + SHIFT + B", hl.dsp.exec_cmd("~/.dotfiles/bin/launch-browser"))
 hl.bind("SUPER + SHIFT + F", hl.dsp.exec_cmd("~/.dotfiles/bin/launch-tui yazi"))
 hl.bind("SUPER + SHIFT + M", hl.dsp.exec_cmd("~/.dotfiles/bin/launch-or-focus spotify"))
