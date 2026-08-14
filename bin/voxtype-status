@@ -1,13 +1,24 @@
 #!/bin/bash
-
-# omarchy:summary=Clean up the voxtype --follow child when Waybar reloads
-
-trap 'kill 0' EXIT
+# voxtype-status — one-shot status snapshot.
+#
+# Rewritten for Quickshell's VoxtypeIndicator, which polls this script every
+# second and expects ONE JSON line then a clean exit — unlike the old
+# waybar-oriented version, which ran `voxtype status --follow` as a
+# long-lived stream and relied on `trap 'kill 0' EXIT` to clean up that
+# child when waybar itself killed the script on reload. That trap is what
+# was taking Quickshell's whole process group down with it under polling.
+#
+# `--follow` is still used here (no separate one-shot flag assumed), but
+# timeboxed with `timeout` + `head -n1` so this always exits within ~1s
+# regardless, giving a real one-shot snapshot either way.
 
 if omarchy-cmd-present voxtype; then
-  voxtype status --follow --extended --format json | while read -r line; do
-    echo "$line" | jq -c '. + {alt: .class}'
-  done
+    line=$(timeout 1 voxtype status --follow --extended --format json 2>/dev/null | head -n1)
+    if [ -n "$line" ]; then
+        echo "$line" | jq -c '. + {alt: .class}'
+    else
+        echo '{"alt": "idle", "tooltip": ""}'
+    fi
 else
-  echo '{"alt": "", "tooltip": ""}'
+    echo '{"alt": "", "tooltip": ""}'
 fi
