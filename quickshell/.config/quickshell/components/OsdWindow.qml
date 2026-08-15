@@ -25,6 +25,9 @@ PanelWindow {
     implicitHeight: 64
 
     readonly property var volumeIcons: ["󰕿", "󰖀", "󰕾"]
+    // Matches the muted/low/medium/high vocabulary audio-output-switch
+    // already computes for its icon_state.
+    readonly property var outputIcons: ({ muted: "󰝟", low: "󰕿", medium: "󰖀", high: "󰕾" })
 
     readonly property string icon: {
         if (Osd.kind === "volume") {
@@ -34,11 +37,16 @@ PanelWindow {
         if (Osd.kind === "brightness") return "󰃟";
         if (Osd.kind === "kbdBacklight") return "󰥻";
         if (Osd.kind === "mic") return Osd.muted ? "󰍭" : "󰍬";
+        if (Osd.kind === "message") return outputIcons[Osd.iconState] ?? "󰕾";
         return "";
     }
 
-    readonly property string label: Osd.kind === "mic" ? (Osd.muted ? "Mic muted" : "Mic on") : (Osd.value + "%")
-    readonly property bool showBar: Osd.kind !== "mic"
+    readonly property string label: {
+        if (Osd.kind === "mic") return Osd.muted ? "Mic muted" : "Mic on";
+        if (Osd.kind === "message") return Osd.message;
+        return Osd.value + "%";
+    }
+    readonly property bool showBar: Osd.kind === "volume" || Osd.kind === "brightness" || Osd.kind === "kbdBacklight"
 
     Rectangle {
         anchors.fill: parent

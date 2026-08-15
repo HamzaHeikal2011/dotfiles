@@ -19,11 +19,15 @@ Singleton {
     property int value: 0
     property bool muted: false
     property bool active: false
+    property string message: ""
+    property string iconState: ""
 
-    function show(newKind, newValue, newMuted) {
+    function show(newKind, newValue, newMuted, newMessage, newIconState) {
         root.kind = newKind;
-        root.value = newValue;
+        root.value = newValue ?? 0;
         root.muted = newMuted === true;
+        root.message = newMessage ?? "";
+        root.iconState = newIconState ?? "";
         root.active = true;
         hideTimer.restart();
     }
@@ -69,6 +73,11 @@ Singleton {
     function kbdBacklightShow(percent) { root.show("kbdBacklight", parseInt(percent), false); }
     function micShow(muted) { root.show("mic", 0, muted === "on" || muted === "true"); }
 
+    // Generic text confirmation — e.g. audio-output-switch's "Switched to
+    // <device>" / "No audio devices found". iconState reuses the same
+    // muted/low/medium/high vocabulary that script already computes.
+    function messageShow(text, iconState) { root.show("message", 0, false, text, iconState); }
+
     IpcHandler {
         target: "osd"
 
@@ -80,5 +89,6 @@ Singleton {
         function brightnessShow(percent: string): void { root.brightnessShow(percent); }
         function kbdBacklightShow(percent: string): void { root.kbdBacklightShow(percent); }
         function micShow(muted: string): void { root.micShow(muted); }
+        function messageShow(text: string, iconState: string): void { root.messageShow(text, iconState); }
     }
 }
