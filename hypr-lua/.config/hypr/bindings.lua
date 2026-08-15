@@ -1,11 +1,11 @@
 -- Generated from consolidated bindings.conf
 local mainMod = "SUPER"
-local osdclient = 'swayosd-client --monitor "$(~/.dotfiles/bin/hyprland-monitor-focused)"'
+local osdclient = "qs ipc call osd"
 
 -- Multimedia keys
-hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd(osdclient .. " --output-volume raise"))
-hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd(osdclient .. " --output-volume lower"))
-hl.bind("XF86AudioMute", hl.dsp.exec_cmd(osdclient .. " --output-volume mute-toggle"))
+hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd(osdclient .. " volumeRaise"))
+hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd(osdclient .. " volumeLower"))
+hl.bind("XF86AudioMute", hl.dsp.exec_cmd(osdclient .. " volumeMuteToggle"))
 hl.bind("XF86AudioMicMute", hl.dsp.exec_cmd("~/.dotfiles/bin/audio-input-mute"))
 hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("~/.dotfiles/bin/brightness-display +5%"))
 hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("~/.dotfiles/bin/brightness-display 5%-"))
@@ -14,8 +14,8 @@ hl.bind("XF86KbdBrightnessDown", hl.dsp.exec_cmd("~/.dotfiles/bin/brightness-key
 hl.bind("XF86KbdLightOnOff", hl.dsp.exec_cmd("~/.dotfiles/bin/brightness-keyboard cycle"))
 
 -- Precise multimedia adjustments
-hl.bind("ALT + XF86AudioRaiseVolume", hl.dsp.exec_cmd(osdclient .. " --output-volume +1"))
-hl.bind("ALT + XF86AudioLowerVolume", hl.dsp.exec_cmd(osdclient .. " --output-volume -1"))
+hl.bind("ALT + XF86AudioRaiseVolume", hl.dsp.exec_cmd(osdclient .. " volumeUp1"))
+hl.bind("ALT + XF86AudioLowerVolume", hl.dsp.exec_cmd(osdclient .. " volumeDown1"))
 hl.bind("ALT + XF86MonBrightnessUp", hl.dsp.exec_cmd("~/.dotfiles/bin/brightness-display +1%"))
 hl.bind("ALT + XF86MonBrightnessDown", hl.dsp.exec_cmd("~/.dotfiles/bin/brightness-display 1%-"))
 

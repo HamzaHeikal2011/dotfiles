@@ -48,4 +48,4 @@ fi
 brightnessctl -d "$device" set "$step" >/dev/null
 
 # Use SwayOSD to display the new brightness setting.
-$HOME/.dotfiles/bin/swayosd-brightness "$(brightnessctl -d "$device" -m | cut -d',' -f4 | tr -d '%')"
+qs ipc call osd brightnessShow "$percent"

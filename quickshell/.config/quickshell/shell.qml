@@ -18,4 +18,8 @@ ShellRoot {
     // Single instance — toasts render on the primary screen regardless of
     // which monitor triggered them.
     ToastWindow {}
+
+    // Single instance — replaces swayosd. Same "primary screen regardless
+    // of trigger" reasoning as ToastWindow above.
+    OsdWindow {}
 }
