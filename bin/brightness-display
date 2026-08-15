@@ -47,5 +47,4 @@ fi
 # Set the actual brightness of the display device.
 brightnessctl -d "$device" set "$step" >/dev/null
 
-# Use SwayOSD to display the new brightness setting.
-qs ipc call osd brightnessShow "$percent"
+qs ipc call osd brightnessShow "$(brightnessctl -d "$device" -m | cut -d',' -f4 | tr -d '%')"

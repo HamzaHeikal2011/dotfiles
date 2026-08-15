@@ -16,4 +16,4 @@ fi
 
 $HOME/.dotfiles/bin/brightness-keyboard-mute "$led"
 
-qs ipc call osd micShow "$percent"
+qs ipc call osd micShow "$led"
