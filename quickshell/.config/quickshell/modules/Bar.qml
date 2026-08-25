@@ -29,6 +29,15 @@ PanelWindow {
     WlrLayershell.layer: WlrLayer.Top
     WlrLayershell.namespace: "quickshell:bar"
 
+    // Without this, the whole 80px-tall window (bar pill + hover-preview
+    // headroom) is clickable, even where it's fully transparent. Since this
+    // layer sits above normal windows, that dead zone silently ate clicks
+    // meant for whatever was underneath it (e.g. a maximized browser's tab
+    // bar) all the way down to y=headroom, not just under the visible pill.
+    // Restricting the mask to `surface` lets clicks in the transparent
+    // region pass through to the window below instead.
+    mask: Region { item: surface }
+
     // The visible pill — matches window#waybar { background:#121212; border-radius:8px; border:1px solid rgba(128,128,128,.5) }
     Rectangle {
         id: surface

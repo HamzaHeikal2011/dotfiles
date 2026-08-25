@@ -6,7 +6,7 @@ hl.config({
 	general = {
 		gaps_in = 5,
 		gaps_out = 10,
-		border_size = 2,
+		border_size = 1,
 		["col.active_border"] = activeBorderColor,
 		["col.inactive_border"] = inactiveBorderColor,
 		resize_on_border = false,
@@ -14,13 +14,23 @@ hl.config({
 		layout = "dwindle",
 	},
 	decoration = {
-		rounding = 0,
+		rounding = 8,
 		shadow = {
 			enabled = true,
 			range = 2,
 			render_power = 3,
 			color = "rgba(1a1a1aee)",
 		},
+		blur = {
+			enabled = true,
+			special = false,
+			size = 5,
+			passes = 3,
+			new_optimizations = true,
+			xray = false,
+		},
+		active_opacity = 0.95,
+		inactive_opacity = 0.85,
 	},
 	group = {
 		["col.border_active"] = activeBorderColor,
@@ -68,33 +78,6 @@ hl.config({
 	},
 	binds = {
 		hide_special_on_workspace_change = true,
-	},
-})
-
--- Final Overrides
-hl.config({
-	general = {
-		["col.active_border"] = activeBorderColor,
-		border_size = 1,
-	},
-	group = {
-		["col.border_active"] = activeBorderColor,
-	},
-	animations = {
-		enabled = true,
-	},
-	decoration = {
-		rounding = 8,
-		blur = {
-			enabled = true,
-			special = false,
-			size = 5,
-			passes = 3,
-			new_optimizations = true,
-			xray = false,
-		},
-		active_opacity = 0.95,
-		inactive_opacity = 0.85,
 	},
 })
 

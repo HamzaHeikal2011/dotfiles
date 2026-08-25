@@ -97,6 +97,7 @@ hl.bind(" SUPER + CTRL + COMMA", hl.dsp.exec_cmd("swaync-client -t"))
 hl.bind("SUPER + CTRL + N", hl.dsp.exec_cmd("~/.dotfiles/bin/toggle-nightlight"))
 hl.bind("SUPER + CTRL + I", hl.dsp.exec_cmd("~/.dotfiles/bin/toggle-idle"))
 hl.bind("SUPER + CTRL + L", hl.dsp.exec_cmd("~/.dotfiles/bin/system-lock"))
+hl.bind("SUPER + BACKSPACE", hl.dsp.exec_cmd("~/.dotfiles/bin/hyprland-active-window-transparency-toggle"))
 
 -- Captures
 hl.bind("PRINT", hl.dsp.exec_cmd("~/.dotfiles/bin/capture-screenshot"))

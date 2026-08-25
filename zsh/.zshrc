@@ -72,8 +72,7 @@ alias ltd='eza -lh --tree --level=2 --long --icons --git'
 alias ltda='ltd -a'
 alias n='nvim .'
 alias c='clear'
-alias hermes-tut='HERMES_HOME=~/hermes-profiles/tutorial hermes'
-alias hermes='HERMES_HOME=~/hermes-profiles/production hermes'
+alias hermes-tut='HERMES_HOME=~/.hermes-profiles/tutorial hermes'
 alias disk='udiskie'
 alias 'disku'='udiskie-umount -a'
 alias lg="lazygit"
@@ -88,6 +87,7 @@ export OPENROUTER_API_KEY="$(pass show apis/claude-code/openrouter)"
 export ANTHROPIC_BASE_URL="https://openrouter.ai/api"
 export ANTHROPIC_AUTH_TOKEN="$OPENROUTER_API_KEY"
 export ANTHROPIC_API_KEY=""
+export NOTION_API_TOKEN="$(pass show apis/hermes/notion)"
 
 # Shell integrations
 eval "$(fzf --zsh)"
