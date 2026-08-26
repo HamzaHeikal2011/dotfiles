@@ -16,21 +16,13 @@ hl.config({
 	decoration = {
 		rounding = 8,
 		shadow = {
-			enabled = true,
-			range = 2,
-			render_power = 3,
-			color = "rgba(1a1a1aee)",
+			enabled = false,
 		},
 		blur = {
-			enabled = true,
-			special = false,
-			size = 5,
-			passes = 3,
-			new_optimizations = true,
-			xray = false,
+			enabled = false,
 		},
-		active_opacity = 0.95,
-		inactive_opacity = 0.85,
+		active_opacity = 1.0,
+		inactive_opacity = 1.0,
 	},
 	group = {
 		["col.border_active"] = activeBorderColor,
