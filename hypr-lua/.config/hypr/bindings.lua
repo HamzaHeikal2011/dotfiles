@@ -86,6 +86,7 @@ hl.bind("SUPER + ESCAPE", hl.dsp.exec_cmd("~/.config/rofi/powermenu/type-2/power
 
 -- Aesthetics
 hl.bind("SUPER + SHIFT + SPACE", hl.dsp.exec_cmd("~/.dotfiles/bin/toggle-waybar"))
+hl.bind("SUPER + SHIFT + W", hl.dsp.exec_cmd("qs ipc call wallpaper togglePicker"))
 
 -- Notifications
 hl.bind("SUPER + COMMA", hl.dsp.exec_cmd("swaync-client --close-latest"))

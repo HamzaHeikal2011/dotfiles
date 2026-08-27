@@ -15,6 +15,17 @@ ShellRoot {
         }
     }
 
+    // One per screen, same wallpaper everywhere — replaces swaybg (see
+    // autostart.lua, the swaybg exec line is removed).
+    Variants {
+        model: Quickshell.screens
+
+        WallpaperWindow {
+            id: wallpaperWindow
+            screen: modelData
+        }
+    }
+
     // Single instance — toasts render on the primary screen regardless of
     // which monitor triggered them.
     ToastWindow {}
@@ -22,4 +33,8 @@ ShellRoot {
     // Single instance — replaces swayosd. Same "primary screen regardless
     // of trigger" reasoning as ToastWindow above.
     OsdWindow {}
+
+    // Single instance — centered overlay, toggled by SUPER + SHIFT + W
+    // (see bindings.lua) via the "wallpaper" IPC target.
+    WallpaperPicker {}
 }
