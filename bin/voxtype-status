@@ -12,7 +12,7 @@
 # timeboxed with `timeout` + `head -n1` so this always exits within ~1s
 # regardless, giving a real one-shot snapshot either way.
 
-if omarchy-cmd-present voxtype; then
+if cmd-present voxtype; then
     line=$(timeout 1 voxtype status --follow --extended --format json 2>/dev/null | head -n1)
     if [ -n "$line" ]; then
         echo "$line" | jq -c '. + {alt: .class}'

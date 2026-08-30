@@ -4,7 +4,7 @@
 # omarchy:requires-sudo=true
 
 echo "Installing NordVPN..."
-omarchy-pkg-aur-add nordvpn-bin
+pkg-aur-add nordvpn-bin
 
 echo "Enabling NordVPN daemon..."
 sudo systemctl enable --now nordvpnd
@@ -15,4 +15,4 @@ sudo usermod -aG nordvpn "$USER"
 echo -e "\nNordVPN installed! After reboot, run 'nordvpn login' to authenticate."
 
 echo
-gum confirm "Reboot now to make NordVPN usable?" && omarchy-system-reboot
+gum confirm "Reboot now to make NordVPN usable?" && system-reboot

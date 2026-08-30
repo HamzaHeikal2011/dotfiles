@@ -7,7 +7,7 @@
 # omarchy:examples=omarchy install package jq ripgrep
 # omarchy:requires-sudo=true
 
-if omarchy-pkg-missing "$@"; then
+if pkg-missing "$@"; then
   sudo pacman -S --noconfirm --needed "$@" || exit 1
 fi
 

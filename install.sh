@@ -1,26 +1,73 @@
-#! /bin/zsh
+#!/bin/bash
+# Bootstrap a fresh Arch install: paru, packages, then stow dotfiles.
+# Usage: ./install.sh [--skip-packages] [--skip-dotfiles]
 
-echo "Congrats: You've passed one of the hardest parts of installing linux. Now to the second part which could either go as smooth as butter or as hard as.... "
+set -euo pipefail
+DOTFILES_PATH="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+export DOTFILES_PATH
 
-echo 'Installing Hyprland Dependencies...'
-sudo pacman -S hyprsunset hyprlock hypridle waybar swaync swaybg
-echo 'Hyprland dependencies installed.'
+info() { printf '\033[1;34m[+]\033[0m %s\n' "$*"; }
+warn() { printf '\033[1;33m[!]\033[0m %s\n' "$*"; }
+err()  { printf '\033[1;31m[x]\033[0m %s\n' "$*" >&2; }
 
-echo "Now onto general development stuff..."
-sudo pacman -S base-devel nvim yazi ghostty keyd eza zoxide fzf lazygit fd ripgrep
+SKIP_PACKAGES=0
+SKIP_DOTFILES=0
+for arg in "$@"; do
+  case "$arg" in
+    --skip-packages) SKIP_PACKAGES=1 ;;
+    --skip-dotfiles) SKIP_DOTFILES=1 ;;
+    *) err "unknown flag: $arg"; exit 1 ;;
+  esac
+done
 
-echo "Installing Yay..."
-git clone https://aur.archlinux.org/yay.git ~/yay/ 
-cd yay && makepkg -si
+[[ $EUID -eq 0 ]] && { err "run as your normal user, not root (uses sudo where needed)"; exit 1; }
+command -v pacman >/dev/null || { err "this is not an Arch system"; exit 1; }
 
-echo "Installing Tmux Plugin Manager..."
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+ensure_paru() {
+  if command -v paru >/dev/null; then
+    info "paru already installed"
+    return
+  fi
+  info "building paru from AUR"
+  sudo pacman -S --needed --noconfirm base-devel git
+  local tmp
+  tmp="$(mktemp -d)"
+  git clone https://aur.archlinux.org/paru.git "$tmp"
+  (cd "$tmp" && makepkg -si --noconfirm)
+  rm -rf "$tmp"
+}
 
-echo "Installing Zinit for zsh..."
-bash -c "$(curl --fail --show-error --silent --location https://raw.githubusercontent.com/zdharma-continuum/zinit/HEAD/scripts/install.sh)"
+_read_list() { grep -vE '^\s*(#|$)' "$1" 2>/dev/null || true; }
 
-echo "Installling fzf-lua for nvim..."
-sh -c "$(curl -s https://raw.githubusercontent.com/ibhagwan/fzf-lua/main/scripts/mini.sh)"
+install_packages() {
+  info "installing base packages"
+  mapfile -t base < <(_read_list "$DOTFILES_PATH/install/base.packages")
+  if [[ ${#base[@]} -gt 0 ]]; then
+    sudo pacman -S --needed --noconfirm "${base[@]}"
+  fi
 
-echo "Installing elephant and walker..."
-yay -S --no-confirm-needed elephant walker
+  info "installing AUR packages"
+  mapfile -t aur < <(_read_list "$DOTFILES_PATH/install/aur.packages")
+  if [[ ${#aur[@]} -gt 0 ]]; then
+    paru -S --needed --noconfirm "${aur[@]}"
+  fi
+}
+
+info "== bootstrap start =="
+
+ensure_paru
+
+if [[ $SKIP_PACKAGES -eq 0 ]]; then
+  install_packages
+else
+  info "skipping package install (--skip-packages)"
+fi
+
+if [[ $SKIP_DOTFILES -eq 0 ]]; then
+  info "handing off to bin/init to stow dotfiles"
+  zsh "$DOTFILES_PATH/bin/init"
+else
+  info "skipping dotfiles (--skip-dotfiles)"
+fi
+
+info "== bootstrap done. Restart your shell (or reboot) to pick up DOTFILES_PATH/PATH changes. =="

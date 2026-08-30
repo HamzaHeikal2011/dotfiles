@@ -3,4 +3,4 @@
 # omarchy:summary=Restart Waybar
 # omarchy:examples=omarchy restart waybar
 
-omarchy-restart-app waybar
+restart-app waybar

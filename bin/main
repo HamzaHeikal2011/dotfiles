@@ -324,7 +324,7 @@ load_group_extra_commands() {
 
   case "$group" in
   install)
-    load_command_by_binary omarchy-pkg-add
+    load_command_by_binary pkg-add
     ;;
   esac
 }

@@ -5,7 +5,7 @@
 
 set -e
 
-omarchy-pkg-drop steam
+pkg-drop steam
 
 rm -rf \
   "$HOME/.steam" \

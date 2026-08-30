@@ -117,17 +117,17 @@ else
     print_info "FocalTech FT9349 detected (B9406CAA) — using libfprint-git from OPR..."
     # libfprint-git provides+conflicts libfprint; pacman -S --noconfirm
     # defaults the conflict prompt to N and aborts. Pre-remove libfprint
-    # with -Rdd so the install goes silent. -Rdd (not omarchy-pkg-drop's
+    # with -Rdd so the install goes silent. -Rdd (not pkg-drop's
     # -Rns) is required because fprintd requires libfprint; the dep is
     # re-satisfied immediately by libfprint-git's provides=libfprint.
-    if omarchy-pkg-present libfprint; then
+    if pkg-present libfprint; then
       sudo pacman -Rdd --noconfirm libfprint
     fi
-    omarchy-pkg-add libfprint-git
+    pkg-add libfprint-git
     break
   done
 
-  omarchy-pkg-add fprintd usbutils
+  pkg-add fprintd usbutils
 
   if ! check_fingerprint_hardware; then
     exit 1

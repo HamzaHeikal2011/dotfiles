@@ -18,6 +18,7 @@ PanelWindow {
     }
 
     implicitHeight: Theme.barHeight + 8 + Theme.hoverPreviewHeadroom
+    visible: BarState.visible
     color: "transparent"
     // Only the actual bar pill (Theme.barHeight + 8) should be reserved
     // screen space; the extra height below it is just headroom so the

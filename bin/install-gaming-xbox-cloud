@@ -5,6 +5,6 @@
 set -e
 
 echo "Installing Xbox Cloud Gaming..."
-omarchy-webapp-install "Xbox Cloud Gaming" "https://www.xbox.com/en-US/play" "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/xbox.png"
+webapp-install "Xbox Cloud Gaming" "https://www.xbox.com/en-US/play" "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/xbox.png"
 
-setsid omarchy-launch-webapp "https://www.xbox.com/en-US/play" >/dev/null 2>&1 &
+setsid launch-webapp "https://www.xbox.com/en-US/play" >/dev/null 2>&1 &

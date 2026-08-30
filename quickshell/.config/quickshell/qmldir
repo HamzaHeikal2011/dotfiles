@@ -2,3 +2,4 @@ singleton Theme 1.0 Theme.qml
 singleton Notifications 1.0 services/Notifications.qml
 singleton Osd 1.0 services/Osd.qml
 singleton Wallpaper 1.0 services/Wallpaper.qml
+singleton BarState 1.0 services/BarState.qml

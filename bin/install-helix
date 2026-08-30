@@ -3,7 +3,7 @@
 # Install Helix and configure it to use the current Omarchy theme.
 
 echo "Installing Helix..."
-omarchy-pkg-add helix
+pkg-add helix
 
 mkdir -p ~/.config/helix/themes
 
@@ -19,7 +19,7 @@ fi
 
 # Ensure the symlink target exists for users whose current theme predates this template
 if [[ ! -e ~/.config/omarchy/current/theme/helix.toml ]]; then
-  omarchy-theme-refresh
+  theme-refresh
 fi
 
 # Arch-based distros ship Helix as 'helix' rather than the upstream 'hx'.

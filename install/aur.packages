@@ -1,0 +1,6 @@
+# AUR package list — installed via `paru -S --needed`.
+# One package per line. Blank lines and #-comments are ignored.
+
+quickshell
+elephant
+walker

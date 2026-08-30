@@ -5,7 +5,7 @@
 # omarchy:requires-sudo=true
 
 if (($# == 0)); then
-  echo "Usage: omarchy-install-terminal [alacritty|ghostty|kitty]"
+  echo "Usage: install-terminal [alacritty|ghostty|kitty]"
   exit 1
 fi
 
@@ -25,11 +25,11 @@ esac
 echo "Installing $package..."
 
 # Install package
-if omarchy-pkg-add $package; then
+if pkg-add $package; then
   # Copy custom desktop entry for alacritty with X-TerminalArg* keys
   if [[ $package == "alacritty" ]]; then
     mkdir -p ~/.local/share/applications
-    cp $OMARCHY_PATH/applications/Alacritty.desktop ~/.local/share/applications/
+    cp $DOTFILES_PATH/applications/Alacritty.desktop ~/.local/share/applications/
   fi
 
   # Update xdg-terminals.list to prioritize the proper terminal

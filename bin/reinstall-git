@@ -1,11 +1,14 @@
 #!/bin/bash
 
-# omarchy:summary=Reinstall the Omarchy source directory from git
+# omarchy:summary=Reinstall the dotfiles source directory from git
 
 set -e
 
-# Reinstall the Omarchy configuration directory from the git source.
+# Reset the dotfiles directory to a clean clone of YOUR repo (not upstream Omarchy).
+# DOTFILES_REPO must point at your own repo; override via env var if it ever moves.
 
-git clone --depth=1 "https://github.com/basecamp/omarchy.git" ~/.local/share/omarchy-new >/dev/null
-mv $OMARCHY_PATH ~/.local/share/omarchy-old
-mv ~/.local/share/omarchy-new $OMARCHY_PATH
+DOTFILES_REPO="${DOTFILES_REPO:-https://github.com/HamzaHeikal2011/dotfiles.git}"
+
+git clone --depth=1 "$DOTFILES_REPO" ~/.local/share/dotfiles-new >/dev/null
+mv "$DOTFILES_PATH" ~/.local/share/dotfiles-old
+mv ~/.local/share/dotfiles-new "$DOTFILES_PATH"

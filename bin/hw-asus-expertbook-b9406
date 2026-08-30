@@ -2,4 +2,4 @@
 
 # omarchy:summary=Detect ASUS ExpertBook B9406 series laptops on Intel Panther Lake.
 
-omarchy-hw-match "B9406" && omarchy-hw-intel-ptl
+hw-match "B9406" && hw-intel-ptl

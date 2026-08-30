@@ -2,7 +2,7 @@
 
 # omarchy:summary=Toggle screensaver availability
 
-omarchy-toggle \
+toggle \
   --enabled-notification "󱄄   Screensaver disabled" \
   --disabled-notification "󱄄   Screensaver enabled" \
   screensaver-off

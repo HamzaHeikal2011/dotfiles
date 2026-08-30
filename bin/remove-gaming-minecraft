@@ -5,7 +5,7 @@
 
 set -e
 
-omarchy-pkg-drop minecraft-launcher
+pkg-drop minecraft-launcher
 
 rm -rf \
   "$HOME/.minecraft" \

@@ -19,10 +19,10 @@ for vendor in "${!VULKAN_DRIVERS[@]}"; do
   fi
 done
 
-if omarchy-hw-nvidia-gsp; then
+if hw-nvidia-gsp; then
   PACKAGES+=(lib32-nvidia-utils)
-elif omarchy-hw-nvidia-without-gsp; then
+elif hw-nvidia-without-gsp; then
   PACKAGES+=(lib32-nvidia-580xx-utils)
 fi
 
-[[ ${#PACKAGES[@]} -gt 0 ]] && omarchy-pkg-add "${PACKAGES[@]}"
+[[ ${#PACKAGES[@]} -gt 0 ]] && pkg-add "${PACKAGES[@]}"

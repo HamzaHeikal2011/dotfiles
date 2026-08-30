@@ -8,7 +8,7 @@ set_theme() {
   local editor_cmd="$1"
   local settings_path="$2"
 
-  omarchy-cmd-present "$editor_cmd" || return 0
+  cmd-present "$editor_cmd" || return 0
 
   if [[ -f $VS_CODE_THEME ]]; then
     theme_name=$(jq -r '.name' "$VS_CODE_THEME")
@@ -33,7 +33,7 @@ set_theme() {
   fi
 }
 
-! omarchy-toggle-enabled skip-vscode-theme-changes && set_theme "code" "$HOME/.config/Code/User/settings.json"
-! omarchy-toggle-enabled skip-vscode-insiders-theme-changes && set_theme "code-insiders" "$HOME/.config/Code - Insiders/User/settings.json"
-! omarchy-toggle-enabled skip-codium-theme-changes && set_theme "codium" "$HOME/.config/VSCodium/User/settings.json"
-! omarchy-toggle-enabled skip-cursor-theme-changes && set_theme "cursor" "$HOME/.config/Cursor/User/settings.json"
+! toggle-enabled skip-vscode-theme-changes && set_theme "code" "$HOME/.config/Code/User/settings.json"
+! toggle-enabled skip-vscode-insiders-theme-changes && set_theme "code-insiders" "$HOME/.config/Code - Insiders/User/settings.json"
+! toggle-enabled skip-codium-theme-changes && set_theme "codium" "$HOME/.config/VSCodium/User/settings.json"
+! toggle-enabled skip-cursor-theme-changes && set_theme "cursor" "$HOME/.config/Cursor/User/settings.json"

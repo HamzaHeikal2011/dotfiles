@@ -16,10 +16,13 @@ typeset -a FAILED
 DOTFILES_DIR=""
 
 # --- Stow helper -------------------------------------------------------------
+# root: where stow should target ($HOME for most packages, / for absolute-path
+#       packages like keyd which mirror /etc/keyd/... inside the package dir)
 stow_pkg() {
   local target="$1"
   local pkg="$2"
   local is_file="${3:-false}"
+  local root="${4:-$HOME}"
 
   info "Stowing $pkg → $target"
 
@@ -29,7 +32,7 @@ stow_pkg() {
     rm -rf "$target"
   fi
 
-  if stow -t / "$pkg" 2>/dev/null; then
+  if stow -d "$DOTFILES_DIR" -t "$root" "$pkg" 2>/dev/null; then
     success "$pkg"
   else
     error "Failed to stow $pkg"
@@ -39,6 +42,12 @@ stow_pkg() {
 
 # --- Dotfiles directory resolver ---------------------------------------------
 find_dotfiles_dir() {
+  if [[ -n "$DOTFILES_PATH" && -d "$DOTFILES_PATH" ]]; then
+    DOTFILES_DIR="$DOTFILES_PATH"
+    info "Using DOTFILES_PATH: $DOTFILES_DIR"
+    return
+  fi
+
   local candidates=()
 
   # Check if we're already inside a dotfiles dir
@@ -146,27 +155,22 @@ case "$choice" in
       exit 1
     }
 
-<<<<<<< HEAD:bin/init
-    # --- Stow packages -------------------------------------------------------
-
-    stow_pkg ~/.config/elephant        elephant
-=======
+    # --- Stow packages ---------------------------------------------------
+    # Each stows to $HOME by default; keyd is the one exception (its package
+    # dir mirrors /etc/keyd/... so it roots at /).
     stow_pkg ~/.bashrc                 bash        true
-    stow_pkg /etc/keyd/default.conf    keyd        true
->>>>>>> master:zsh/init-zsh.sh
     stow_pkg ~/.config/fontconfig      fontconfig
     stow_pkg ~/.config/ghostty         ghostty
-    stow_pkg ~/.config/hypr            hypr
-    stow_pkg /etc/keyd/default.conf    keyd        true
+    stow_pkg ~/.config/hypr            hypr-lua
+    stow_pkg /etc/keyd/default.conf    keyd        true    /
     stow_pkg ~/.config/nvim            nvim
+    stow_pkg ~/.config/quickshell      quickshell
     stow_pkg ~/.config/starship.toml   starship    true
     stow_pkg ~/.config/swaync          swaync
-    stow_pkg ~/.config/swayosd         swayosd
     stow_pkg ~/.config/tmux            tmux
-    stow_pkg ~/.config/walker          walker
-    stow_pkg ~/.config/waybar          waybar
     stow_pkg ~/.config/yazi            yazi
     stow_pkg ~/.zshrc                  zsh         true
+    stow_pkg ~/.zprofile               zsh         true
 
     echo ""
 

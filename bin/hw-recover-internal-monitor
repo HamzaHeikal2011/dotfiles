@@ -4,6 +4,6 @@
 
 TOGGLE="$HOME/.local/state/omarchy/toggles/hypr/internal-monitor-disable.conf"
 
-if [[ -f $TOGGLE ]] && ! omarchy-hw-external-monitors; then
+if [[ -f $TOGGLE ]] && ! hw-external-monitors; then
   rm -f "$TOGGLE"
 fi

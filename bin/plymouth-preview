@@ -7,7 +7,7 @@
 # theme assets (recolored with the given text color) onto the background.
 
 if [[ $# -ne 4 ]]; then
-  echo "Usage: omarchy-plymouth-preview <background-hex> <text-hex> <path-to-logo.png> <output-path>" >&2
+  echo "Usage: plymouth-preview <background-hex> <text-hex> <path-to-logo.png> <output-path>" >&2
   exit 1
 fi
 

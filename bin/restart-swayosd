@@ -2,4 +2,4 @@
 
 # omarchy:summary=Restart the SwayOSD server
 
-omarchy-restart-app swayosd-server
+restart-app swayosd-server

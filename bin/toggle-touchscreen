@@ -5,7 +5,7 @@
 
 STATE_CONF="$HOME/.local/state/omarchy/toggles/hypr/touchscreen-disabled.conf"
 
-device="$(omarchy-hw-touchscreen)"
+device="$(hw-touchscreen)"
 
 if [[ -z $device ]]; then
   echo "No touchscreen device found" >&2
@@ -15,14 +15,14 @@ fi
 enable() {
   hyprctl keyword "device[$device]:enabled" true >/dev/null
   rm -f "$STATE_CONF"
-  omarchy-swayosd-client --custom-icon device-support-touch-symbolic --custom-message "Touchscreen enabled"
+  swayosd-client --custom-icon device-support-touch-symbolic --custom-message "Touchscreen enabled"
 }
 
 disable() {
   hyprctl keyword "device[$device]:enabled" false >/dev/null
   mkdir -p "$(dirname "$STATE_CONF")"
   printf 'device {\n    name = %s\n    enabled = false\n}\n' "$device" > "$STATE_CONF"
-  omarchy-swayosd-client --custom-icon touch-disabled-symbolic --custom-message "Touchscreen disabled"
+  swayosd-client --custom-icon touch-disabled-symbolic --custom-message "Touchscreen disabled"
 }
 
 case "${1:-toggle}" in

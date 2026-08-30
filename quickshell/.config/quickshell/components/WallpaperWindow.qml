@@ -26,7 +26,7 @@ PanelWindow {
 
     Image {
         anchors.fill: parent
-        source: Wallpaper.currentPath.length > 0 ? "file://" + Wallpaper.currentPath : ""
+        source: Wallpaper.currentPath.length > 0 ? "file://" + encodeURI(Wallpaper.currentPath) : ""
         fillMode: Image.PreserveAspectCrop
         asynchronous: true
         cache: false

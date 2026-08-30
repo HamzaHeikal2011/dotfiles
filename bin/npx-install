@@ -4,7 +4,7 @@
 # omarchy:args=<package> [command-name]
 
 if [[ -z $1 ]]; then
-  echo "Usage: omarchy-npx-install <package> [command-name]"
+  echo "Usage: npx-install <package> [command-name]"
   exit 1
 fi
 
@@ -33,9 +33,9 @@ ensure_bin_runtime() {
   IFS= read -r shebang < "\$bin_path"
 
   if [[ \$shebang == "#!"*"/bun"* || \$shebang == "#!"*"/env bun"* ]]; then
-    if omarchy-cmd-missing bun; then
+    if cmd-missing bun; then
       echo "Installing bun runtime for \$package..."
-      omarchy-pkg-add bun
+      pkg-add bun
       hash -r
     fi
   fi

@@ -5,7 +5,7 @@
 
 set -e
 
-omarchy-pkg-drop xpadneo-dkms
+pkg-drop xpadneo-dkms
 
 sudo rm -f /etc/modprobe.d/blacklist-xpad.conf /etc/modules-load.d/xpadneo.conf
 

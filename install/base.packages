@@ -1,0 +1,49 @@
+# Base package list — installed via `pacman -S --needed`.
+# One package per line. Blank lines and #-comments are ignored.
+# AUR-only packages go in aur.packages instead.
+
+# --- Hyprland desktop stack --------------------------------------------------
+hyprland
+hyprsunset
+hyprlock
+hypridle
+swaync
+swaybg
+ghostty
+keyd
+stow
+base-devel
+git
+
+# --- Shell / terminal tooling (from your zshrc, tmux, nvim configs) ---------
+tmux
+neovim
+eza
+zoxide
+fzf
+fd
+ripgrep
+lazygit
+starship
+udiskie
+pass
+gum
+
+# --- OSD / system feedback ----------------------------------------------------
+swayosd
+
+# --- Yazi + its preview/extraction backends ----------------------------------
+yazi
+ffmpegthumbnailer
+poppler
+imagemagick
+p7zip
+jq
+
+# --- Media --------------------------------------------------------------------
+vlc
+
+# --- Qt/GTK theming ------------------------------------------------------------
+qt5ct
+qt6ct
+qt6-imageformats

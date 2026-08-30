@@ -1,23 +1,12 @@
 #!/bin/bash
 
-# omarchy:summary=Overwrite the package configuration for /etc/pacman with the Omarchy default of using its dedicated mirrors and repositories, then update all packages.
+# omarchy:summary=Refresh package databases and update the system.
 # omarchy:requires-sudo=true
 
-sudo cp -f /etc/pacman.conf /etc/pacman.conf.bak
-sudo cp -f /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.bak
+# NOTE: Omarchy's original version of this script overwrote /etc/pacman.conf
+# and the mirrorlist with its own dedicated repo/mirrors, keyed by a
+# stable/rc/edge release channel. That's Omarchy's own package-repo
+# infrastructure and doesn't apply to a personal dotfiles fork, so it's been
+# dropped in favor of a plain refresh + update against your normal Arch mirrors.
 
-channel="${1:-stable}"
-
-if [[ $channel != "stable" && $channel != "rc" && $channel != "edge" ]]; then
-  echo "Error: Invalid channel '$channel'. Must be one of: stable, rc, edge"
-  exit 1
-fi
-
-echo "Setting channel to $channel"
-echo
-
-sudo cp -f "$OMARCHY_PATH/default/pacman/pacman-$channel.conf" /etc/pacman.conf
-sudo cp -f "$OMARCHY_PATH/default/pacman/mirrorlist-$channel" /etc/pacman.d/mirrorlist
-
-# Reset all package DBs and then update
-sudo pacman -Syyuu --noconfirm
+sudo pacman -Syyu --noconfirm

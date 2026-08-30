@@ -4,5 +4,4 @@
 
 set -e
 
-omarchy-launch-floating-terminal-with-presentation "voxtype setup model"
-omarchy-restart-waybar
+launch-floating-terminal-with-presentation "voxtype setup model"

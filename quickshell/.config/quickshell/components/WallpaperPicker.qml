@@ -88,7 +88,7 @@ PanelWindow {
                             Image {
                                 anchors.fill: parent
                                 anchors.margins: thumb.active ? 2 : 1
-                                source: "file://" + thumb.modelData
+                                source: "file://" + encodeURI(thumb.modelData)
                                 fillMode: Image.PreserveAspectCrop
                                 asynchronous: true
                             }

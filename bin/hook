@@ -6,7 +6,7 @@
 set -e
 
 if (( $# < 1 )); then
-  echo "Usage: omarchy-hook [name] [args...]"
+  echo "Usage: hook [name] [args...]"
   exit 1
 fi
 

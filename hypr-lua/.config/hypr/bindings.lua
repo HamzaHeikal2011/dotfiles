@@ -85,7 +85,7 @@ hl.bind("SUPER + SPACE", hl.dsp.exec_cmd("~/.config/rofi/scripts/launcher_t1"))
 hl.bind("SUPER + ESCAPE", hl.dsp.exec_cmd("~/.config/rofi/powermenu/type-2/powermenu.sh"))
 
 -- Aesthetics
-hl.bind("SUPER + SHIFT + SPACE", hl.dsp.exec_cmd("~/.dotfiles/bin/toggle-waybar"))
+hl.bind("SUPER + SHIFT + SPACE", hl.dsp.exec_cmd("qs ipc call bar toggle"))
 hl.bind("SUPER + SHIFT + W", hl.dsp.exec_cmd("qs ipc call wallpaper togglePicker"))
 
 -- Notifications

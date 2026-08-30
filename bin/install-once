@@ -4,7 +4,7 @@
 # omarchy:requires-sudo=true
 
 echo "Installing ONCE..."
-omarchy-pkg-add once-bin
+pkg-add once-bin
 
 echo "Enabling ONCE background service..."
 sudo systemctl enable --now once-background.service

@@ -23,11 +23,11 @@ enable() {
     exit 1
   fi
 
-  if omarchy-hyprland-toggle-enabled "$DISABLE_TOGGLE"; then
-    omarchy-hyprland-toggle "$DISABLE_TOGGLE"
+  if hyprland-toggle-enabled "$DISABLE_TOGGLE"; then
+    hyprland-toggle "$DISABLE_TOGGLE"
   fi
 
-  if omarchy-hyprland-toggle-disabled "$TOGGLE"; then
+  if hyprland-toggle-disabled "$TOGGLE"; then
     echo "monitor=$EXTERNAL, preferred, auto, 1, mirror, $INTERNAL" > "$TOGGLE_FLAG"
     notify-send -u low "󰍹    Mirroring enabled ($EXTERNAL)"
     hyprctl reload
@@ -35,21 +35,21 @@ enable() {
 }
 
 disable() {
-  if omarchy-hyprland-toggle-enabled "$TOGGLE"; then
-    omarchy-hyprland-toggle --disabled-notification "󰍹    Extended mode restored" "$TOGGLE"
+  if hyprland-toggle-enabled "$TOGGLE"; then
+    hyprland-toggle --disabled-notification "󰍹    Extended mode restored" "$TOGGLE"
   fi
 }
 
 recover() {
-  if ! omarchy-hw-external-monitors && omarchy-hyprland-toggle-enabled "$TOGGLE"; then
-    omarchy-hyprland-toggle "$TOGGLE"
+  if ! hw-external-monitors && hyprland-toggle-enabled "$TOGGLE"; then
+    hyprland-toggle "$TOGGLE"
   fi
 }
 
 case "$1" in
   on) enable ;;
   off) disable ;;
-  toggle) if omarchy-hyprland-toggle-enabled "$TOGGLE"; then disable; else enable; fi ;;
+  toggle) if hyprland-toggle-enabled "$TOGGLE"; then disable; else enable; fi ;;
   recover) recover ;;
   *)
     echo "Usage: $(basename "$0") {on|off|toggle|recover}" >&2

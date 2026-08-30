@@ -4,4 +4,4 @@
 
 set -e
 
-omarchy-webapp-remove "Xbox Cloud Gaming"
+webapp-remove "Xbox Cloud Gaming"

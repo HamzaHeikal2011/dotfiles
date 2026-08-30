@@ -5,7 +5,7 @@
 
 set -e
 
-omarchy-pkg-drop moonlight-qt
+pkg-drop moonlight-qt
 
 rm -rf \
   "$HOME/.config/Moonlight Game Streaming Project" \
