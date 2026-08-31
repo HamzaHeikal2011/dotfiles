@@ -1,0 +1,94 @@
+onboarding = false
+[theme]
+name = "terminal"
+auto_switch = false
+
+[theme.custom]
+# Graphite-black theme from dotfiles
+sidebar_bg = "#101010"
+active_row_bg = "#1a1a1a"
+selection_bg = "#2a2a2a"
+panel_bg = "#101010"
+surface0 = "#1a1a1a"
+surface1 = "#2a2a2a"
+surface_dim = "#101010"
+overlay0 = "#5a5a5a"
+overlay1 = "#6f6f6f"
+text = "#e6e6e6"
+subtext0 = "#a0a0a0"
+accent = "#909090"
+red = "#b85c5c"
+green = "#6f9f7a"
+blue = "#6f7fa5"
+yellow = "#d2b36a"
+
+
+[keys]
+prefix = "ctrl+space"
+
+goto = "prefix+g"
+settings = "prefix+,"
+split_vertical = "prefix+v"
+split_horizontal = "prefix+h"
+new_tab = "prefix+c"
+new_workspace = "prefix+shift+c"
+toggle_sidebar = "prefix+p"
+
+switch_tab = "alt+1..9"
+switch_workspace = "alt+ctrl+1..9"
+
+rename_tab = "prefix+r"
+rename_workspace = "prefix+shift+r"
+reload_config = "prefix+shift+i"
+
+[[keys.command]]
+key = "ctrl+h"
+type = "plugin_action"
+command = "herdr-splits.nav-left"
+
+[[keys.command]]
+key = "ctrl+j"
+type = "plugin_action"
+command = "herdr-splits.nav-down"
+
+[[keys.command]]
+key = "ctrl+k"
+type = "plugin_action"
+command = "herdr-splits.nav-up"
+
+[[keys.command]]
+key = "ctrl+l"
+type = "plugin_action"
+command = "herdr-splits.nav-right"
+
+[[keys.command]]
+key = "alt+h"
+type = "plugin_action"
+command = "herdr-splits.resize-left"
+
+[[keys.command]]
+key = "alt+j"
+type = "plugin_action"
+command = "herdr-splits.resize-down"
+
+[[keys.command]]
+key = "alt+k"
+type = "plugin_action"
+command = "herdr-splits.resize-up"
+
+[[keys.command]]
+key = "alt+l"
+type = "plugin_action"
+command = "herdr-splits.resize-right"
+
+[ui]
+show_agent_labels_on_pane_borders = false
+
+[ui.sound]
+enabled = false
+
+[ui.toast]
+delivery = "system"
+
+[experimental]
+pane_history = false
