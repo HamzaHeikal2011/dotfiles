@@ -38,6 +38,15 @@ return {
     priority = 1000,
   },
   {
+    dir = "~/dev/projects/active/graphiteblack.nvim",
+    name = "graphiteblack",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      vim.cmd.colorscheme("graphiteblack")
+    end,
+  },
+  {
     "loctvl842/monokai-pro.nvim",
     lazy = true,
     priority = 1000,
