@@ -34,6 +34,8 @@ set -euo pipefail
 # 0. Preflight
 # ────────────────────────────────────────────────────────────────────────
 
+source "$(dirname "$0")/lib/network-check.sh"
+
 if [[ $EUID -ne 0 ]]; then
   echo "This must be run as root (it's meant to run from the live ISO)." >&2
   exit 1
@@ -200,7 +202,7 @@ mount "$ESP" /mnt/boot
 
 BASE_PKGS=(
   base base-devel linux linux-firmware
-  intel-ucode  # swap for amd-ucode if not on Intel
+  intel-ucode # swap for amd-ucode if not on Intel
   btrfs-progs efibootmgr limine
   networkmanager network-manager-applet iwd dnsmasq
   sudo git stow zsh
@@ -282,13 +284,13 @@ MANUAL_FOLLOWUP=(
 echo "Installing base system (pacstrap)..."
 pacstrap -K /mnt "${BASE_PKGS[@]}" "${NATIVE_PKGS[@]}"
 
-genfstab -U /mnt >> /mnt/etc/fstab
+genfstab -U /mnt >>/mnt/etc/fstab
 
 # ────────────────────────────────────────────────────────────────────────
 # 4. Stage 2: write config for chroot, then chroot in
 # ────────────────────────────────────────────────────────────────────────
 
-cat > /mnt/root/chroot-vars.sh <<EOF
+cat >/mnt/root/chroot-vars.sh <<EOF
 HOSTNAME="$HOSTNAME"
 USERNAME="$USERNAME"
 PASSWORD="$PASSWORD"
@@ -302,9 +304,9 @@ EOF
 chmod 600 /mnt/root/chroot-vars.sh
 
 # AUR package list is passed in as its own file to avoid quoting hell
-printf '%s\n' "${AUR_PKGS[@]}" > /mnt/root/aur-pkgs.txt
+printf '%s\n' "${AUR_PKGS[@]}" >/mnt/root/aur-pkgs.txt
 
-cat > /mnt/root/chroot-setup.sh <<'CHROOT_EOF'
+cat >/mnt/root/chroot-setup.sh <<'CHROOT_EOF'
 #!/usr/bin/env bash
 set -euo pipefail
 source /root/chroot-vars.sh
