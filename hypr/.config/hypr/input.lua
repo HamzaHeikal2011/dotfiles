@@ -1,7 +1,7 @@
 -- Generated from consolidated input.conf
 hl.config({
 	input = {
-		kb_layout = "us,ara",
+		kb_layout = "us",
 		kb_options = "grp:alt_shift_toggle",
 		touchdevice = {
 			enabled = false,
