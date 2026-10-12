@@ -114,7 +114,7 @@ hl.bind("SUPER + CTRL + T", hl.dsp.exec_cmd("~/.dotfiles/bin/launch-tui btop"))
 hl.bind("SUPER + CTRL + X", hl.dsp.exec_cmd("voxtype record toggle"))
 
 -- Apps
-hl.bind("SUPER + RETURN", hl.dsp.exec_cmd("ghostty +new-window"))
+hl.bind("SUPER + RETURN", hl.dsp.exec_cmd("ghostty"))
 hl.bind("SUPER + SHIFT + B", hl.dsp.exec_cmd("~/.dotfiles/bin/launch-browser"))
 hl.bind("SUPER + SHIFT + F", hl.dsp.exec_cmd("~/.dotfiles/bin/launch-tui yazi"))
 hl.bind("SUPER + SHIFT + M", hl.dsp.exec_cmd("~/.dotfiles/bin/launch-or-focus spotify"))

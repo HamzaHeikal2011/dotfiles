@@ -2,6 +2,7 @@
 hl.on("hyprland.start", function()
 	hl.exec_cmd("hypridle")
 	hl.exec_cmd("quickshell")
+	hl.exec_cmd("fcitx5 -d")
 	hl.exec_cmd("voxtype")
 	hl.exec_cmd("/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1")
 	hl.exec_cmd("~/.dotfiles/bin/powerprofiles-init")

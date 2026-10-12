@@ -1,6 +1,10 @@
-# AUR package list — installed via `paru -S --needed`.
+# AUR package list — installed via `yay -S --needed`.
 # One package per line. Blank lines and #-comments are ignored.
 
 quickshell
-elephant
-walker
+fcitx5
+fcitx5-chinese-addons 
+fcitx5-configtool 
+fcitx5-gtk 
+fcitx5-qt 
+noto-fonts-cjk

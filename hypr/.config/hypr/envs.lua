@@ -7,7 +7,10 @@
 -- you type them in a terminal but silently fail to be found when Hyprland
 -- itself tries to exec them.
 local home = os.getenv("HOME")
-hl.env("PATH", "/usr/local/sbin:/usr/local/bin:/usr/bin:/sbin:/bin:" .. home .. "/.local/bin:" .. home .. "/.dotfiles/bin")
+hl.env(
+	"PATH",
+	"/usr/local/sbin:/usr/local/bin:/usr/bin:/sbin:/bin:" .. home .. "/.local/bin:" .. home .. "/.dotfiles/bin"
+)
 
 hl.env("XCURSOR_SIZE", "24")
 hl.env("HYPRCURSOR_SIZE", "24")
@@ -18,6 +21,7 @@ hl.env("ELECTRON_OZONE_PLATFORM_HINT", "wayland")
 hl.env("OZONE_PLATFORM", "wayland")
 hl.env("XDG_SESSION_TYPE", "wayland")
 hl.env("XDG_CURRENT_DESKTOP", "Hyprland")
+hl.env("XMODIFIERS", "@im=fcitx")
 hl.env("XDG_SESSION_DESKTOP", "Hyprland")
 hl.env("QT_QPA_PLATFORMTHEME", "qt5ct")
 
